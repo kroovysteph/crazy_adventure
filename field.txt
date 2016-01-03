@@ -1,0 +1,2 @@
+Room 0 0 Es_ist_ein_schoener_Tag! Schwert Kobold Harald Gloeckler <item5> <item6> <item7> <item8> <item9> <item10>
+Wall 0 1 Es_ist_ein_wunderschoener_schoener_Tag! Gnom Guenther Pizza <item4> <item5> <item6> <item7> <item8> <item9> <item10>

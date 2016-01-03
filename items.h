@@ -2,7 +2,7 @@
 #define ITEMS_H
 
 /* code from here */
-
+/*
 typedef struct Weapon {
     
     String name = "";
@@ -10,7 +10,7 @@ typedef struct Weapon {
     float weight = 0.0;
     bool twoHanded = false;
 }
-
+*/
 
 
 
