@@ -2,7 +2,6 @@
 #define ROOM_H
 
 
-
 /**A room at a certain point of the field.
  * Each Room struct contains a List with pointers to items
  * and the room description.
@@ -13,5 +12,6 @@ typedef struct Room
     bool wall;
     List items;  //List contains pointers to Structs.
 } Room;
+
 
 #endif

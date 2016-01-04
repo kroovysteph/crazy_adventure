@@ -24,4 +24,5 @@ typedef struct Player
     int alignment;
 } Player;
 
+
 #endif

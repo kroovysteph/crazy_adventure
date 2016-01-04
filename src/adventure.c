@@ -2,16 +2,8 @@
  * Compile and run: make adventure && ./adventure
  */
 
+
 #include "adventure.h"
-
-/**Playing field. Each field contains a
- * pointer of Room structs at a certain place.
- */
-Room **field;
-#define FIELD_WIDTH 10
-#define FIELD_HEIGHT 10
-Player player;
-
 
 
 /**Initialise the field, Rooms and the Player.
@@ -27,8 +19,9 @@ void init_game(void)
     scanf("%s", s);
     player = init_player(s);
     printf("Your name is %s.\n\n", player.name);
+    
+    printf("debug: init_game() successful!");
 }
-
 
 
 //Fill the field with rooms.
@@ -41,7 +34,9 @@ void init_field(void)
         field[i] = (Room *)malloc(FIELD_WIDTH * sizeof(Room));
     }
     
+    
     FILE * fp = fopen("field.txt", "r");
+    
     
     //Iterate through the pointer-array.
     for(int i = 0; i < FIELD_WIDTH * FIELD_HEIGHT; i++)
@@ -63,6 +58,7 @@ void init_field(void)
         char item9[25] = "";
         char item10[25] = "";
         
+        
         //Boolean to represent a field as a wall.
         if(room_or_wall[0] == 'W')
         {
@@ -73,6 +69,7 @@ void init_field(void)
             wall = false;
         }
         
+        
         //Fill the pointer-array with rooms using the make_room function.
         fscanf(fp, "%s %d %d %s %s %s %s %s %s %s %s %s %s %s", room_or_wall, &coord_x, &coord_y, ambience, item1, item2, item3, item4, item5, item6, item7, item8, item9, item10);
         field[coord_y][coord_x] = make_room(wall, ambience, item1, item2, item3, item4, item5, item6, item7, item8, item9, item10);
@@ -81,16 +78,19 @@ void init_field(void)
 }
 
 
-
-
 int main(void)
 {
+    /*
     //Freed memory check.
     base_init();
     base_set_memory_check(true);
+    */
     //Not using xmalloc so we need to free the dinamically allocated memory!
     
+    
     init_game();
+    printf("Hi");
+    print_field();
     
     return 0;
 }
