@@ -1,21 +1,18 @@
 CC = gcc
-LINKER = gcc
-CFLAGS = -std=c99 -Wall -Werror -Wpointer-arith -Wfatal-errors
-DEBUG = -g
+CFLAGS = -std=c99 -Wall -Werror -Wpointer-arith -Wfatal-errors -I$(IDIR)
 
-# disable default suffixes
-.SUFFIXES:
+IDIR = ./include/
+SRCDIR = ./src/
 
-# pattern rule for compiling .c-file to executable
-%: %.c
-	$(CC) $(CFLAGS) $(DEBUG) $< -L../prog1lib/lib -lprog1 -lm -iquote../prog1lib/lib -o $@
+SOURCES = $(SRCDIR)*.c
 
-# do not treat "clean" as a file name
-.PHONY: clean 
+all: adventure run clean
 
-# remove produced files, invoke as "make clean"
-clean: 
-	rm -f *.o
-	rm -rf *.dSYM
-	rm -f *.exe
-	rm .DS_Store
+adventure:
+	$(CC) $(SOURCES) $(CFLAGS) -o $< -L../prog1lib/lib -lprog1 -lm -iquote../prog1lib/lib -o $@
+
+run:
+	./adventure
+
+clean:
+	rm adventure
