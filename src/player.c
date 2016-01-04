@@ -9,7 +9,7 @@ Player init_player(char s[])
     epic_string_cpy(s, p.name);
     
     
-    p.inventory = l_create(sizeof(void*));
+    p.inventory = l_create(sizeof(Item));
     
     
     p.position.x = 0;

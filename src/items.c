@@ -5,26 +5,30 @@
  * and actually save the pointer to it into the pointer list of items.
  * Comparing the given String by the .txt file to the item database.
  */
-void * create_item(char item[])
+Item *create_item(char item[])
 {
+    
+    Item *i = malloc(sizeof(Item));
+    
     if(0 == strcmp(item, "Bucket"))
     {
-        Bucket * p = malloc(sizeof(Bucket));
-        Bucket bucket;
-        p = &bucket;
-        epic_string_cpy("Bucket", p->name);
-        p->weight = 1;
-        return p;
+        epic_string_cpy("bucket", i->name);
+        i->damage = 0;
+        i->weight = 1;
+        i->value = 5;
+        i->quantity = 1;
+        
+        return i;
     }
     else if(0 == strcmp(item, "Sword"))
     {
-        Sword * p = malloc(sizeof(Sword));
-        Sword sword;
-        p = &sword;
-        epic_string_cpy("Sword", p->name);
-        p->damage = 6;
-        p->weight = 2;
-        return p;
+        epic_string_cpy("sword", i->name);
+        i->damage = 6;
+        i->weight = 2;
+        i->value = 30;
+        i->quantity = 1;
+        
+        return i;
     }
-    return NULL;
+    return i;
 }

@@ -1,8 +1,16 @@
 #ifndef ITEMS_H
 #define ITEMS_H
 
+typedef struct Item
+{
+    char name[25];
+    int damage;
+    int weight;
+    int value;
+    int quantity;
+} Item;
 
-typedef struct Bucket
+/*typedef struct Bucket
 {
     char name[25];
     int weight;
@@ -14,7 +22,7 @@ typedef struct Sword
     char name[25];
     int damage;
     int weight;
-} Sword;
+} Sword;*/
 
 
 #endif
