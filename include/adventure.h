@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include "base.h"
+#include "../../prog1lib/lib/base.h"
 #include "list.h"
 #include "string_list.h"
 #include "items.h"

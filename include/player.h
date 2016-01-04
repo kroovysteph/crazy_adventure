@@ -1,4 +1,14 @@
-#include "adventure.h"
+#ifndef PLAYER_H
+#define PLAYER_H
+
+
+/**The actual Position of the Player.
+ */
+typedef struct Position
+{
+    int x;
+    int y;
+} Position;
 
 
 /**The Player with his name, his inventory, the actual position, health and moral.
@@ -13,3 +23,5 @@ typedef struct Player
     int health;
     int alignment;
 } Player;
+
+#endif

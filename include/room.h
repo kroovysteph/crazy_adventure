@@ -1,4 +1,5 @@
-#include "adventure.h"
+#ifndef ROOM_H
+#define ROOM_H
 
 
 
@@ -13,12 +14,4 @@ typedef struct Room
     List items;  //List contains pointers to Structs.
 } Room;
 
-
-
-/**The actual Position of the Player.
- */
-typedef struct Position
-{
-    int x;
-    int y;
-} Position;
+#endif

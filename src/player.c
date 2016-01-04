@@ -1,4 +1,5 @@
 #include "adventure.h"
+//#include "base.h"
 
 Player init_player(char s[])
 {

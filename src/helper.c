@@ -1,4 +1,5 @@
 #include "adventure.h"
+//#include "base.h"
 
 //String copy function.
 void epic_string_cpy(char from[], char to[])
