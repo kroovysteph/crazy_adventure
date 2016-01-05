@@ -14,6 +14,41 @@ void epic_string_cpy(char from[], char to[])
 }
 
 
+//Function that prints a randomly chosen String to represent a wrong player input.
+void random_error_string(void)
+{
+    int random_number;
+    srand(time(NULL));
+    //Generate a random int between [1, 5].
+    for(int i = 0; i < 10; i++)
+    {
+        random_number = rand() % 5 + 1;
+    }
+    //Print a random String, added by the direction.
+    switch(random_number)
+    {
+        case 1:
+            printf("Did you mean something else?");
+            break;
+        case 2:
+            printf("This isn´t the right way to do that.");
+            break;
+        case 3:
+            printf("You can´t do that like this.");
+            break;
+        case 4:
+            printf("That´s not possible!");
+            break;
+        case 5:
+            printf("Try it another way.");
+            break;
+        default:
+            break;
+    }
+    printf("\n");
+}
+
+
 //Function that prints a randomly chosen String and takes the players input.
 void random_string(char input[])
 {
