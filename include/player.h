@@ -22,6 +22,7 @@ typedef struct Player
     int weight_carrying;
     int health;
     int alignment;
+    int damage;
 } Player;
 
 

@@ -8,7 +8,7 @@
  */ 
 typedef struct Room
 {
-    char ambience[100];
+    char ambience[1000];    //Change the ambience, if an item has been picked up! -->evaluate function.
     bool wall;
     List items;  //List contains pointers to Structs.
 } Room;

@@ -45,7 +45,7 @@ void init_field(void)
         
         //Respect the maximum size for the objects of the room!
         char room_or_wall[5] = "";
-        char ambience[100] = "";
+        char ambience[1000] = "";
         char item1[25] = "";
         char item2[25] = "";
         char item3[25] = "";

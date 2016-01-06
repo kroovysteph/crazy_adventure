@@ -12,14 +12,15 @@ Player init_player(char s[])
     p.inventory = l_create(sizeof(Item));
     
     
-    p.position.x = 0;
-    p.position.y = 0;
+    p.position.x = 1;
+    p.position.y = 1;
     
     
-    p.capacity = 20;
+    p.capacity = 50;
     p.weight_carrying = 0;
     p.health = 10.0;
     p.alignment = 0;
+    p.damage = 1;
     
     
     return p;
