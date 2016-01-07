@@ -13,6 +13,7 @@ void init_game(void)
     //Init the playground containing the different rooms.
     init_field();
     
+    print_title();
     //Init Player with a chosen name (using standard-input-output).
     char s[25] = "";
     printf("\nPlease enter your name: ");
@@ -102,22 +103,42 @@ void game_loop(void)
         if(strcmp(input1, "left") == 0 || 0 == strcmp(input1, "l"))
         {
             go_left(input1);
+            print_field();
         }
         else if(strcmp(input1, "down") == 0 || 0 == strcmp(input1, "d"))
         {
             go_down(input1);
+            print_field();
         }
         else if(strcmp(input1, "up") == 0 || 0 == strcmp(input1, "u"))
         {
             go_up(input1);
+            print_field();
         }
         else if(strcmp(input1, "right") == 0 || 0 == strcmp(input1, "r"))
         {
             go_right(input1);
+            print_field();
         }
         else if(strcmp(input1, "get") == 0 || 0 == strcmp(input1, "g"))
         {
             get_item();
+        }
+        else if(strcmp(input1, "put") == 0 || 0 == strcmp(input1, "p"))
+        {
+            put_item();
+        }
+        else if(0 == strcmp(input1, "look"))
+        {
+            look();
+        }
+        else if(strcmp(input1, "examine") == 0 || 0 == strcmp(input1, "ex"))
+        {
+            examine();
+        }
+        else if(0 == strcmp(input1, "ls"))
+        {
+            list_items();
         }
         else if(strcmp(input1, "quit") == 0 || 0 == strcmp(input1, "q"))
         {

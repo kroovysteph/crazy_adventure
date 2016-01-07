@@ -13,9 +13,9 @@
 #include "room.h"
 
 
-#define FIELD_WIDTH 10
-#define FIELD_HEIGHT 12
-
+#define FIELD_WIDTH 11
+#define FIELD_HEIGHT 38
+#define DEBUG_MODE 0
 
 /**Playing field. Each field contains a
  * pointer of Room structs at a certain place.
@@ -40,8 +40,14 @@ void go_left(char input[]);
 void go_down(char input[]);
 void go_up(char input[]);
 void go_right(char input[]);
+void put_item(void);
 void get_item(void);
+void examine(void);
+void look(void);
+void list_items(void);
 void random_error_string(void);
+void print_itemlist(List list);
+void print_title(void);
 
 
 #endif

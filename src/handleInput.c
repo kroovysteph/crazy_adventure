@@ -12,9 +12,8 @@ void go_left(char input[])
     }
     else
     {
-        printf("You cannot go that way...\n");
+        printf("\nYou cannot go that way...\n");
     }
-    print_field();
 }
 
 
@@ -30,9 +29,8 @@ void go_down(char input[])
     }
     else
     {
-        printf("You cannot go that way...\n");
+        printf("\nYou cannot go that way...\n");
     }
-    print_field();
 }
 
 
@@ -48,9 +46,8 @@ void go_up(char input[]) {
     }
     else
     {
-        printf("You cannot go that way...\n");
+        printf("\nYou cannot go that way...\n");
     }
-    print_field();
 }
 
 
@@ -67,13 +64,64 @@ void go_right(char input[]) {
     }
     else
     {
-        printf("You cannot go that way...\n");
+        printf("\nYou cannot go that way...\n");
     }
-    print_field();
 }
 
 
 void get_item(void) {
+    
+    bool found = false;
+    char input2[25] = "";
+    
+    int x = player.position.x;
+    int y = player.position.y;
+    
+    int max_load = player.capacity;
+    int cur_load = player.weight_carrying;
+    
+    scanf("%s", input2);
+    Item *item;
+    found = false;
+    
+    int c = 0;
+    while(input2[c] != '\0')
+    {
+        input2[c] = tolower(input2[c]);
+        c++;
+    }
+    
+    for(int i = 0; i < l_length(field[y][x].items); i++)
+    {
+        //geht durch die Liste
+        item = l_get(field[y][x].items, i);
+        
+        if(strcmp(item->name, input2) == 0) {
+            
+            found = true;
+            
+            if(max_load > cur_load + item->weight) {
+                
+                player.weight_carrying += item->weight;
+                l_append( player.inventory, item);
+                l_remove(field[y][x].items, i);
+                printf("\nYou have gained a %s.\n", item->name);
+                break;
+            } else {
+                printf("\nA \"%s\" is too heavy for carrying.\n", item->name);
+            }
+            
+        }
+    }
+    
+    if(!(found))
+    {
+        printf("\nThere is nothing like \"%s\"...\n", input2);
+    }
+}
+
+
+void put_item(void) {
     
     bool found = false;
     char input2[25] = "";
@@ -92,25 +140,98 @@ void get_item(void) {
         c++;
     }
     
-    for(int i = 0; i < l_length(field[y][x].items); i++)
+    for(int i = 0; i < l_length(player.inventory); i++)
     {
         //geht durch die Liste
-        item = l_get(field[y][x].items, i);
+        item = l_get(player.inventory, i);
         
-        if(strcmp(item->name, input2) == 0)
-        {
+        if(strcmp(item->name, input2) == 0) {
+            
             found = true;
-            l_append( player.inventory, item);
-            l_remove(field[y][x].items, i);
-            printf("You have gained a %s.\n", item->name);
-            print_field();
+            player.weight_carrying += item->weight;
+            
+            l_append(field[y][x].items, item);
+            l_remove(player.inventory, i);
+            
+            printf("\nYou dropped a %s.\n", item->name);
             break;
         }
     }
     
     if(!(found))
     {
-        printf("There is nothing like \"%s\"...\n", input2);
-        print_field();
+        printf("\nYou have nothing like \"%s\"...\n", input2);
+    }
+}
+
+
+void list_items(void) {
+    
+    int x = player.position.x;
+    int y = player.position.y;
+    
+    printf("\nRoom = ");
+    print_itemlist(field[y][x].items);
+    
+    printf("You  = ");
+    print_itemlist(player.inventory);
+    
+}
+
+
+void examine(void) {
+    
+    char input2[25] = "";
+    
+    int x = player.position.x;
+    int y = player.position.y;
+    
+    scanf("%s", input2);
+    Item *item;
+    
+    int c = 0;
+    while(input2[c] != '\0') {
+        input2[c] = tolower(input2[c]);
+        c++;
+    }
+    
+    for(int i = 0; i < l_length(field[y][x].items); i++) {
+        
+        //geht durch die Liste
+        item = l_get(field[y][x].items, i);
+        
+        if(strcmp(item->name, input2) == 0) {
+            
+            printf("\n%s\n", item->flavour_text);
+            return;
+        }
+    }
+    
+    for(int i = 0; i < l_length(player.inventory); i++) {
+        
+        //geht durch die Liste
+        item = l_get(player.inventory, i);
+        
+        if(strcmp(item->name, input2) == 0) {
+            
+            printf("\n%s\n", item->flavour_text);
+            return;
+        }
+    }
+    
+    printf("\nThere is nothing like \"%s\"...\n", input2);
+}
+
+void look(void) {
+    
+    int x = player.position.x;
+    int y = player.position.y;
+    
+    printf("\n");
+    
+    print_field();
+    
+    if(!DEBUG_MODE) {
+        print_itemlist(field[y][x].items);
     }
 }

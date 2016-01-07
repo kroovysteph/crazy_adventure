@@ -83,19 +83,19 @@ void random_string(char input[])
     switch(random_number)
     {
         case 1:
-            printf("You´re going %s.\n", direction);
+            printf("\nYou´re going %s.\n", direction);
             break;
         case 2:
-            printf("You´re walking across a way that´s headed %s.\n", direction);
+            printf("\nYou´re walking across a way that´s headed %s.\n", direction);
             break;
         case 3:
-            printf("After a long and burdened journey you reach the far %s.\n", direction);
+            printf("\nAfter a long and burdened journey you reach the far %s.\n", direction);
             break;
         case 4:
-            printf("With great efford you reach your destination in the %s.\n", direction);
+            printf("\nWith great efford you reach your destination in the %s.\n", direction);
             break;
         case 5:
-            printf("You are finally there: The %s!\n", direction);
+            printf("\nYou are finally there: The %s!\n", direction);
             break;
         default:
             break;

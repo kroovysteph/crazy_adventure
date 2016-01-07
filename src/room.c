@@ -63,55 +63,82 @@ Room make_room(bool wall, char ambience[], char item1[], char item2[], char item
  */
 void print_field(void)
 {
-    for(int y = 0; y < FIELD_HEIGHT; y++)
-    {
-        if(y > 0) {
-            printf("\n");
-        }
-        for(int x = 0; x < FIELD_WIDTH; x++)
-        {
-            printf("[");
+    int c = 0;
+    int x = player.position.x;
+    int y = player.position.y;
+    
+    
+    //------------------------------------------------------------
+    
+    while(field[y][x].ambience[c] != '\0') {
+        
+        if(field[y][x].ambience[c] != '_') {
             
-            if( field[y][x].wall )
-            {
-                printf("WWW");
-            }
-            else
-            {
-                if(player.position.x == x && player.position.y == y)
-                //Player is in this room.
-                {
-                    printf("P");
-                }
-                else
-                {
-                    printf(" ");
-                }
-                
-                
-                if(1 == l_length(field[y][x].items) )
-                {
-                    //Should be void*, beucase we dont know which struct we´ll look at.
-                    //Cant dereference void*!
-                    Item * i1 = l_get(field[y][x].items, 0);
-                    printf( "%c ", i1->name[0] );
-                }
-                else if(2 <= l_length(field[y][x].items))
-                {
-                    Item * i1 = l_get(field[y][x].items, 0);
-                    Item * i2 = l_get(field[y][x].items, 1);
-                    
-                    printf("%c%c", i1->name[0], i2->name[0]);
-                }
-                else
-                {
-                    printf("  ");
-                }
-            }
-            printf("] ");
+            printf("%c", field[y][x].ambience[c]);
+        } else {
+            printf(" ");
         }
+        c++;
     }
-    printf("\n\n");
+    printf("\n");
+    
+    
+    if(DEBUG_MODE)  {
+        
+        //print list of items
+        print_itemlist(field[y][x].items);
+        
+        //print graphical field
+        for(int y = 0; y < FIELD_HEIGHT; y++)
+        {
+            if(y > 0) {
+                printf("\n");
+            }
+            for(int x = 0; x < FIELD_WIDTH; x++)
+            {
+                printf("[");
+                
+                if( field[y][x].wall )
+                {
+                    printf("WWW");
+                }
+                else
+                {
+                    if(player.position.x == x && player.position.y == y)
+                    //Player is in this room.
+                    {
+                        printf("P");
+                    }
+                    else
+                    {
+                        printf(" ");
+                    }
+                    
+                    
+                    if(1 == l_length(field[y][x].items) )
+                    {
+                        //Should be void*, beucase we dont know which struct we´ll look at.
+                        //Cant dereference void*!
+                        Item * i1 = l_get(field[y][x].items, 0);
+                        printf( "%c ", i1->name[0] );
+                    }
+                    else if(2 <= l_length(field[y][x].items))
+                    {
+                        Item * i1 = l_get(field[y][x].items, 0);
+                        Item * i2 = l_get(field[y][x].items, 1);
+                        
+                        printf("%c%c", i1->name[0], i2->name[0]);
+                    }
+                    else
+                    {
+                        printf("  ");
+                    }
+                }
+                printf("] ");
+            }
+        }
+        printf("\n\n");
+    }
 }
 
 

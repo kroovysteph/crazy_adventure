@@ -9,27 +9,13 @@ Item *create_item(char item[])
 {
     
     Item *i = malloc(sizeof(Item));
-    
-    if(0 == strcmp(item, "Bucket"))
-    {
-        epic_string_cpy("bucket", i->name);
-        i->damage = 0;
-        i->weight = 2;
-        
-        return i;
-    }
-    else if(0 == strcmp(item, "Sword"))
-    {
-        epic_string_cpy("sword", i->name);
-        i->damage = 6;
-        i->weight = 3;
-        
-        return i;
-    }
-    else if(0 == strcmp(item, "Window"))
+
+    if(0 == strcmp(item, "Window"))
     {
         epic_string_cpy("window", i->name);
         i->weight = 1000; //Cant carry a windows!
+        epic_string_cpy("Looking out of the window you see a desolated city.",
+                                                               i->flavour_text);
         
         return i;
     }
@@ -57,7 +43,7 @@ Item *create_item(char item[])
     }
     else if(0 == strcmp(item, "Picture_Partner"))
     {
-        epic_string_cpy("picture of your partner", i->name);
+        epic_string_cpy("picture", i->name);
         i->weight = 1;
         i->damage = 0;
         
@@ -80,7 +66,7 @@ Item *create_item(char item[])
     }
     else if(0 == strcmp(item, "Picture_Child"))
     {
-        epic_string_cpy("picture of your child", i->name);
+        epic_string_cpy("picture", i->name);
         i->weight = 1;
         i->damage = 0;
         
@@ -149,7 +135,7 @@ Item *create_item(char item[])
     else if(0 == strcmp(item, "Front_Door_Key"))
     {
         //Opens the front door of the house.
-        epic_string_cpy("front door key", i->name);
+        epic_string_cpy("key", i->name);
         i->weight = 1;
         i->damage = 0;
         
@@ -160,7 +146,7 @@ Item *create_item(char item[])
         epic_string_cpy("backpack", i->name);
         i->weight = 2;
         i->damage = 0;
-        i->holds_capacity = 20;
+        i->additional_capacity = 20;
         
         return i;
     }
@@ -185,5 +171,78 @@ Item *create_item(char item[])
         
         return i;
     }
+    else if(0 == strcmp(item, "Wolf"))
+    {
+        epic_string_cpy("wolf", i->name);
+        i->damage = 1;
+        i->health = 4;
+        
+        return i;
+    }
+    else if(0 == strcmp(item, "Dog"))
+    {
+        epic_string_cpy("dog", i->name);
+        i->damage = 2;
+        i->health = 4;
+        
+        return i;
+    }
+    else if(0 == strcmp(item, "Axe"))
+    {
+        epic_string_cpy("axe", i->name);
+        i->weight = 3;
+        i->damage = 4;
+        
+        return i;
+    }
+    else if(0 == strcmp(item, "Map"))
+    {
+        epic_string_cpy("map", i->name);
+        i->weight = 1;
+        
+        return i;
+    }
+    else if(0 == strcmp(item, "Cash_Register"))
+    {
+        epic_string_cpy("cashregister", i->name);
+        i->weight = 2;
+        
+        return i;
+    }
+    else if(0 == strcmp(item, "Picture_Queen_Elizabeth"))
+    {
+        epic_string_cpy("picture", i->name);
+        i->weight = 1000;
+        
+        return i;
+    }
+    
+//--------------------add-before-this-line----------------------
     return i;
+}
+
+
+void print_itemlist(List list) {
+    
+    Item *item;
+    char current[25];
+    
+    printf("{ ");
+    
+    for(int i=0; i < l_length(list); i++) {
+        
+        item = l_get(list, i);
+        
+        epic_string_cpy(item->name, current);
+        
+        current[0] = toupper(current[0]);
+        
+        if(i < l_length(list)-1) {
+            printf("%s, ", current);
+        } else {
+            printf("%s", current);
+        }
+        
+    }
+    printf(" }\n");
 }

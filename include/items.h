@@ -4,12 +4,14 @@
 
 typedef struct Item
 {
-    char name[25];
+    char name[50];
+    char flavour_text[500];
     int damage;
     int weight;
     //TODO: Message if you´re looking at an item!
     int hp_regeneration;
-    int holds_capacity;
+    int additional_capacity;
+    int health;
 } Item;
 
 
