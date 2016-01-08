@@ -215,6 +215,21 @@ void examine(void) {
         if(strcmp(item->name, input2) == 0) {
             
             printf("\n%s\n", item->flavour_text);
+//---------------------------------------examine-event-handling-----------------
+            if(strcmp(item->name, "picture") == 0) {
+                //examined item IS in the current room
+                lv1.picture = true;
+            }
+            if(strcmp(item->name, "grave") == 0) {
+                //examined item IS in the current room
+                lv1.grave = true;
+            }
+            if(strcmp(item->name, "note") == 0) {
+                //examined item IS in the current room
+                player.position.y = 32;
+                player.position.x = 7;
+            }
+//------------------------------------------------------------------------------
             return;
         }
     }
@@ -227,6 +242,22 @@ void examine(void) {
         if(strcmp(item->name, input2) == 0) {
             
             printf("\n%s\n", item->flavour_text);
+//---------------------------------------examine-event-handling-----------------
+            
+            if(strcmp(item->name, "picture") == 0) {
+                //examined item IS in the players inventory
+                lv1.picture = true;
+            }
+            if(strcmp(item->name, "grave") == 0) {
+                //examined item IS in the players inventory
+                lv1.grave = true;
+            }
+            if(strcmp(item->name, "note") == 0) {
+                //examined item IS in the current room
+                player.position.y = 32;
+                player.position.x = 7;
+            }
+//------------------------------------------------------------------------------
             return;
         }
     }

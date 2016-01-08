@@ -12,6 +12,8 @@ void init_game(void)
 {
     char dump[1000];
     int status;
+    lv1 = init_level1();
+    //lv2 = init_level2();
     
     //Init the playground containing the different rooms.
     init_field();
@@ -19,6 +21,7 @@ void init_game(void)
     
     //read difficulty
     difficulty = 0;
+    printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
     while ( !(difficulty == 1 || difficulty == 2 || difficulty == 3) ) {
         printf("\nPlease enter the difficulty: ");
         printf("\n(This effects, e.g. how far you can see when using \"map\".)");
@@ -45,12 +48,15 @@ void init_game(void)
             break;
     }
     
+    print_prolog();
+    
     //Init Player with a chosen name (using standard-input-output).
     char s[25] = "";
     printf("\nPlease enter your name: ");
     scanf("%s", s);
     player = init_player(s);
-    printf("Your name is %s.\n\n", player.name);
+    printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+    printf("You remember your name. It's %s.\n", player.name);
 }
 
 
@@ -115,14 +121,14 @@ void game_loop(void)
 {
     print_field();
     
-    Checkpoints cp = create_checkpoints();
+    cp = create_checkpoints();
     turn = create_Turncounter();
     
     char input1[25] = "";
     
-    while(evaluate(cp))
+    while(evaluate())
     {
-        if(difficulty != 1) {
+        if(difficulty != 1 && difficulty != 2) {
             map(difficulty);
         }
         turn.current_turn++;
@@ -137,23 +143,23 @@ void game_loop(void)
             c++;
         }
         
-        
-        if(strcmp(input1, "left") == 0 || 0 == strcmp(input1, "l"))
+
+        if(strcmp(input1, "left") == 0 || 0 == strcmp(input1, "l") || strcmp(input1, "west") == 0 || 0 == strcmp(input1, "w"))
         {
             go_left(input1);
             print_field();
         }
-        else if(strcmp(input1, "down") == 0 || 0 == strcmp(input1, "d"))
+        else if(strcmp(input1, "down") == 0 || 0 == strcmp(input1, "d") || strcmp(input1, "south") == 0 || 0 == strcmp(input1, "s"))
         {
             go_down(input1);
             print_field();
         }
-        else if(strcmp(input1, "up") == 0 || 0 == strcmp(input1, "u"))
+        else if(strcmp(input1, "up") == 0 || 0 == strcmp(input1, "u") || strcmp(input1, "north") == 0 || 0 == strcmp(input1, "n"))
         {
             go_up(input1);
             print_field();
         }
-        else if(strcmp(input1, "right") == 0 || 0 == strcmp(input1, "r"))
+        else if(strcmp(input1, "right") == 0 || 0 == strcmp(input1, "r") || strcmp(input1, "east") == 0 || 0 == strcmp(input1, "e"))
         {
             go_right(input1);
             print_field();

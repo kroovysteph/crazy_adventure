@@ -14,6 +14,23 @@ void epic_string_cpy(char from[], char to[])
 }
 
 
+bool p_has_item(char item[])
+{
+    Item *cur_item;
+    
+    for(int i = 0; i < l_length(player.inventory); i++)
+    {
+        cur_item = l_get(player.inventory, i);
+        
+        if(0 == strcmp(cur_item->name, item))
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+
 //Function that prints a randomly chosen String to represent a wrong player input.
 void random_error_string(void)
 {
@@ -28,19 +45,19 @@ void random_error_string(void)
     switch(random_number)
     {
         case 1:
-            printf("\nDid you mean something else?");
+            printf("\nDid you mean something else? (type \"man\" for a list of commands)");
             break;
         case 2:
-            printf("\nThis isn´t the right way to do that.");
+            printf("\nThis isn´t the right way to do that. (type \"man\" for a list of commands)");
             break;
         case 3:
-            printf("\nYou can´t do that like this.");
+            printf("\nYou can´t do that like this. (type \"man\" for a list of commands)");
             break;
         case 4:
-            printf("\nThat´s not possible!");
+            printf("\nThat´s not possible! (type \"man\" for a list of commands)");
             break;
         case 5:
-            printf("\nTry it another way.");
+            printf("\nTry it another way. (type \"man\" for a list of commands)");
             break;
         default:
             break;
@@ -145,6 +162,10 @@ void finish(void)
 
 void cp_event(int cp_counter) {
     
+    printf("-----------------\n");
+    printf("cp_counter: %d\n", cp_counter);
+    printf("-----------------\n");
+    
     if(cp_counter == 3) {
         printf("\nYou checked three places that came to your mind, where people could be in a city if something terrible happens. ");
         printf("Slowly you're beginning to wonder if you'll ever find someone in this city.\n");
@@ -156,9 +177,9 @@ void cp_event(int cp_counter) {
     
     if(cp_counter == 5) {
         printf("\nThat was the last place. You couldn't find anyone at all...\n");
-        printf("\nYou remember the way back to the house you woke up in quite well. It should´ve been your own house before these strange things happened to you. All in all you just want to wape up from this horrible dream. But you can't. You're going back to the house. On the way it becomes night. You're just falling - shocked from the events - right into the bed you came from.");
-        printf("\nThe next morning you wake up you're starting to remember about your child. You know you dreamt about it. The child on the picture you took. A place where your child used to hang out when the school was over comes to your mind. This last place you'll look up to find your child you're screaming. \"If I can't find my child, or anyone, I'll kill myself!\".");
-        printf("\nYou're remembering the street and the number, so you`re traveling there. With bare strength and some stones you manage to get into the house and you find yourself in the entering room of the house.");
+        printf("\nYou remember the way back to the house you woke up in quite well. It should´ve been your own house before these strange things happened to you. All in all you just want to wake up from this horrible dream. But you can't. You're going back to the house. On the way it becomes night. You're just falling - shocked from the events - right into the bed you came from.");
+        printf("\nThe next morning you wake up you're starting to remember about your child. You know you dreamt about it. The child on the picture you took. A place where your child used to hang out when the school was over comes to your mind. You're screaming: \"This final place i'll look up\". \"If I can't find my child, or anyone, I'll kill myself!\".");
+        printf("\nYou're remembering the street and the number, so you`re traveling there. With bare strength and some stones you manage to break into the house and you find yourself at the entrance of the house.");
         player.position.x = 2;
         player.position.y = 32;
     }

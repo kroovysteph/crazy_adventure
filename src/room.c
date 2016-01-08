@@ -164,14 +164,13 @@ void map(int sight_range) {
     //print graphical field
     for(int y = 0; y < FIELD_HEIGHT; y++)
     {
-        //if(y > 0 && player.position.y-5 < y && y < player.position.y+5) {
-        //    printf("\n");
-        //}
         for(int x = 0; x < FIELD_WIDTH; x++)
         {
             if(near_player(y, x, y_sight_range, x_sight_range)) {
                 
                 if(x == 0 || x == player.position.x - x_sight_range) {
+                    printf("\n");
+                } else if (at_baby(y, x) && x == player.position.x-1) {
                     printf("\n");
                 }
                 

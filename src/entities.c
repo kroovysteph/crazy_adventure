@@ -9,8 +9,13 @@ Player init_player(char s[])
     
     p.inventory = l_create(sizeof(Item));
     
+    //regular start
     p.position.x = 1;
     p.position.y = 1;
+    
+    //friend's house
+    //p.position.x = 2;
+    //p.position.y = 32;
     
     p.capacity = 50;
     p.weight_carrying = 0;

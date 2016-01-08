@@ -24,19 +24,28 @@ Room **field;
 Player player;
 Enemy bear;
 int difficulty;
+Checkpoints cp;
 
 typedef struct Turncounter {
     int current_turn;
     int bear_started;
     bool bear_event;
 } Turncounter;
-
 Turncounter turn;
+
+//------------------------------------
+typedef struct Level1 {
+    bool picture;
+    bool grave;
+} Level1;
+
+Level1 lv1;
+//------------------------------------
 
 /**Declarartions.
  */
 void init_game(void);
-int evaluate(Checkpoints cp);
+int evaluate(void);
 void init_field(void);
 void game_loop(void);
 void finish(void);
@@ -72,7 +81,10 @@ bool at_home(int given_y, int given_x);
 bool at_city(int given_y, int given_x);
 bool at_friend(int given_y, int given_x);
 bool at_baby(int given_y, int given_x);
-
+void print_prolog(void);
+Level1 init_level1(void);
+bool p_has_item(char item[]);
+bool quest1_solved(void);
 
 
 

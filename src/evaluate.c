@@ -1,6 +1,6 @@
 #include "adventure.h"
 
-int evaluate(Checkpoints cp) {
+int evaluate(void) {
     
     char input2[25];
     int cp_counter = 0;
@@ -13,6 +13,10 @@ int evaluate(Checkpoints cp) {
     
     int x = player.position.x;
     int y = player.position.y;
+    
+    if(quest1_solved()) {
+        epic_string_cpy("You are leaving your house.\n", field[5][6].ambience);
+    }
 
     //evaluate status/health
     if(player.health <= 0) {
@@ -127,27 +131,27 @@ int evaluate(Checkpoints cp) {
     }
     if(turn.current_turn - turn.bear_started == 5 && turn.bear_event) {
         //bear's turn 5
-        printf("\nROOAAARRRRR!!!!!!1111\n");
+        printf("\nROOAAARRRRR!!!!!!1111 The bear is STILL chasing you!\n");
         bear.position.y++;
     }
     if(turn.current_turn - turn.bear_started == 6 && turn.bear_event) {
         //bear's turn 6
-        printf("\nROOAAARRRRR!!!!!!1111\n");
+        printf("\nROOAAARRRRR!!!!!!1111 Run away!!\n");
         bear.position.y++;
     }
     if(turn.current_turn - turn.bear_started == 7 && turn.bear_event) {
         //bear's turn 8
-        printf("\nROOAAARRRRR!!!!!!1111\n");
+        printf("\nROOAAARRRRR!!!!!!1111 The bear is STILL chasing you!\n");
         bear.position.y++;
     }
     if(turn.current_turn - turn.bear_started == 8 && turn.bear_event) {
         //bear's turn 8
-        printf("\nROOAAARRRRR!!!!!!1111\n");
+        printf("\nROOAAARRRRR!!!!!!1111 Hurry up!\n");
         bear.position.y++;
     }
     if(turn.current_turn - turn.bear_started == 9 && turn.bear_event) {
         //bear's turn 9
-        printf("\nROOAAARRRRR!!!!!!1111\n");
+        printf("\nROOAAARRRRR!!!!!!1111 Fast! Fast! Fast!\n");
         bear.position.y++;
     }
     if(turn.current_turn - turn.bear_started == 10 && turn.bear_event) {
@@ -167,7 +171,7 @@ int evaluate(Checkpoints cp) {
     }
     
     //evaluate positioning
-    if(x == 6 && y == 5) {
+    if(x == 6 && y == 5 && quest1_solved()) {
         //exit of player's house
         player.position.x = 1;
         player.position.y = 12;
@@ -177,7 +181,8 @@ int evaluate(Checkpoints cp) {
     if(x == 3 && y == 15 && !cp.supermarket) {
         
         cp.supermarket = true;
-        cp_counter++;
+        
+        if(cp.supermarket) cp_counter++;
         
         cp_event(cp_counter);
     }
@@ -186,16 +191,18 @@ int evaluate(Checkpoints cp) {
     if(x == 1 && y == 18 && !cp.townhall) {
         
         cp.townhall = true;
-        cp_counter++;
+        
+        if(cp.townhall) cp_counter++;
         
         cp_event(cp_counter);
     }
     
     //church
-    if(x == 23 && y == 7 && !cp.church) {
+    if(x == 7 && y == 23 && !cp.church) {
         
         cp.church = true;
-        cp_counter++;
+        
+        if(cp.church) cp_counter++;
         
         cp_event(cp_counter);
     }
@@ -204,7 +211,8 @@ int evaluate(Checkpoints cp) {
     if(x == 2 && y == 21 && !cp.school) {
         
         cp.school = true;
-        cp_counter++;
+        
+        if(cp.school) cp_counter++;
         
         cp_event(cp_counter);
     }
@@ -213,10 +221,20 @@ int evaluate(Checkpoints cp) {
     if(x == 7 && y == 16 && !cp.trainstation) {
         
         cp.trainstation = true;
-        cp_counter++;
+        
+        if(cp.trainstation) cp_counter++;
         
         cp_event(cp_counter);
     }
     
     return 1;
+}
+
+bool quest1_solved(void) {
+    
+    if(p_has_item("key") && lv1.picture && lv1.grave) {
+        return true;
+    } else {
+        return false;
+    }
 }
