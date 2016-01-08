@@ -30,11 +30,12 @@ typedef struct Turncounter {
     bool bear_event;
 } Turncounter;
 
+Turncounter turn;
 
 /**Declarartions.
  */
 void init_game(void);
-int evaluate(Checkpoints cp, Turncounter turn);
+int evaluate(Checkpoints cp);
 void init_field(void);
 void game_loop(void);
 void finish(void);

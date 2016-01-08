@@ -106,6 +106,10 @@ void get_item(void) {
                 player.weight_carrying += item->weight;
                 l_append( player.inventory, item);
                 
+                if(strcmp(item->name, "backpack") == 0) {
+                    player.capacity += item->additional_capacity;
+                }
+                
                 printf("\nYou have gained a %s.\n", item->name);
                 
                 l_remove(field[y][x].items, i);
@@ -155,9 +159,13 @@ void put_item(void) {
             player.weight_carrying += item->weight;
             
             l_append(field[y][x].items, item);
-            l_remove(player.inventory, i);
+            
+            if(strcmp(item->name, "backpack") == 0) {
+                player.capacity -= item->additional_capacity;
+            }
             
             printf("\nYou dropped a %s.\n", item->name);
+            l_remove(player.inventory, i);
             break;
         }
     }
@@ -288,7 +296,7 @@ void print_manual(void) {
     printf("ls             :  lists items of inventory and room\n");
     printf("stats          :  lists player's stats\n");
     printf("apply, a       :  sorry, not implemented yet\n");
-    printf("hide           :  sorry, not implemented yet\n");
+    printf("hide           :  hide before enemies, like bears and so on\n");
     printf("attack         :  sorry, not implemented yet\n");
     printf("man, help      :  shows this help menu\n");
     
@@ -306,5 +314,5 @@ void print_stats(void) {
     int y         = player.position.y;
     
     printf("\n%s = { Health: %d | Load: %d/%d | Alignment: %d | Damage: %d | Coords: (%d,%d) }\n",
-            player.name, health, max_load, cur_load, alignment, damage, y, x);
+            player.name, health, cur_load, max_load, alignment, damage, y, x);
 }

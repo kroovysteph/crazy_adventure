@@ -143,7 +143,7 @@ void finish(void)
 }
 
 
-int evaluate(Checkpoints cp, Turncounter turn) {
+int evaluate(Checkpoints cp) {
     
     char input2[25];
     int cp_counter = 0;
@@ -167,15 +167,58 @@ int evaluate(Checkpoints cp, Turncounter turn) {
         
         return 0;
     }
+    if(x == bear.position.x && y == bear.position.y && turn.bear_event) {
+        
+        printf("\nThe bear devours %s's body...\n", player.name);
+        //TODO: implement graphical Tombstone -> in ascii_graphics.c
+        print_tombstone();
+        
+        return 0;
+    }
     
     //bear event
-    if(x == 5 && y == 16 && !turn.bear_event && turn.bear_started == 0) {
+    if(x == 5 && y == 16 && !(turn.bear_event) && turn.bear_started == 0) {
         //bear event starts
-        turn.bear_event   = true;
         turn.bear_started = turn.current_turn;
-        bear = init_bear(); //y=13, x=5
+        if(!turn.bear_event) {
+            bear = init_bear(); //y=13, x=5
+        }
+        turn.bear_event   = true;
     }
-    if(turn.current_turn - turn.bear_started == 1 && turn.bear_event) {
+    
+    if(x == 5 && y == 24 && turn.bear_event)
+        //player is able to "hide"
+    {
+        
+        printf("> ");
+        scanf("%s", input2);
+        if(strcmp("hide", input2) == 0) {
+            turn.bear_event = false;
+            printf("\nThe bear is gone!\n");
+            print_field();
+        }
+        else
+        {
+            printf("\n%s, it's definetly the best option to \"hide\"!\n", player.name);
+        }
+        
+        while( !(strcmp("hide", input2) == 0) )
+        {
+            printf("> ");
+            scanf("%s", input2);
+            if(strcmp("hide", input2) == 0) {
+                turn.bear_event = false;
+                printf("\nThe bear is gone!\n");
+                print_field();
+            }
+            else
+            {
+                printf("\n%s, it's definetly the best option to \"hide\"!\n", player.name);
+            }
+        }
+    }
+    
+    if((turn.current_turn - turn.bear_started) == 1 && turn.bear_event) {
         //bear's turn 1
         printf("\nRoarr!.. Your hear the bear chasing you!\n");
         //set back ambience.
@@ -204,16 +247,21 @@ int evaluate(Checkpoints cp, Turncounter turn) {
         //TODO: 1.scanf left or right (maybe 1 error == extra bear movement!!)
         printf("> ");
         scanf("%s", input2);
-        printf("\n\nIt seems like you've chosen the wrong one, although the key is plugged into the ignition log, the motor doesn't turn on.");
-        
+        while( !(/*von hier*/(strcmp("left", input2) == 0) || (strcmp("right",input2) == 0)
+                    || (strcmp("l", input2) == 0) || (strcmp("r", input2) == 0)/*bis hier*/) ) {
+            printf("\nWhat do you mean by \"%s\"? Choose right or left...\n> ", input2);
+            scanf("%s", input2);
+        }
+        printf("\nIt seems like you've chosen the wrong one, although the key is plugged into the ignition log, the motor doesn't turn on.\n");
+        printf("> ");
         turn.current_turn++;
         bear.position.y++;
-            
+        
         scanf("%s", input2);
         if(strcmp("left", input2) == 0) {
-            printf("Motorcycle runs, yeah! Maybe next time, bear!");
+            printf("\nMotorcycle runs, yeah! Maybe next time, bear!");
         } else {
-            printf("The car starts, yeah! Cya later, bear!");
+            printf("\nThe car starts, yeah! Cya later, bear!");
         }
         
         player.position.y = 21;
@@ -260,28 +308,12 @@ int evaluate(Checkpoints cp, Turncounter turn) {
         printf("\nROOAAARRRRR!!!!!!1121 lol?\n");
         bear.position.y++;
     }
-    if(x == 5 && y == 24 && turn.bear_event) {
-        
-        scanf("%s", input2);
-        if(strcmp("hide", input2) == 0) {
-            turn.bear_event = false;
-            printf("\nThe bear is gone!\n");
-        }
-    }
-    if(x == bear.position.x && y == bear.position.y && turn.bear_event) {
-        
-        printf("\nThe bear devours %s's body...\n", player.name);
-        //TODO: implement graphical Tombstone -> in ascii_graphics.c
-        print_tombstone();
-        
-        return 0;
-    }
     
     //evaluate positioning
     if(x == 6 && y == 5) {
         //exit of player's house
-        player.position.x = 12;
-        player.position.y = 0;
+        player.position.x = 1;
+        player.position.y = 12;
     }
     
     //supermarket

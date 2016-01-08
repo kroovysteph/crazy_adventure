@@ -85,11 +85,11 @@ void game_loop(void)
     print_field();
     
     Checkpoints cp = create_checkpoints();
-    Turncounter turn = create_Turncounter();
+    turn = create_Turncounter();
     
     char input1[25] = "";
     
-    while(evaluate(cp, turn))
+    while(evaluate(cp))
     {
         turn.current_turn++;
         int c = 0;
