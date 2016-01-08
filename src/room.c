@@ -156,26 +156,30 @@ Checkpoints create_checkpoints(void) {
     return cp;
 }
 
-void map(void) {
+void map(int sight_range) {
     
-    int c = 0;
+    int x_sight_range = sight_range;
+    int y_sight_range = sight_range;
     
     //print graphical field
     for(int y = 0; y < FIELD_HEIGHT; y++)
     {
-        if(y > 0) {
-            printf("\n");
-        }
+        //if(y > 0 && player.position.y-5 < y && y < player.position.y+5) {
+        //    printf("\n");
+        //}
         for(int x = 0; x < FIELD_WIDTH; x++)
         {
-            if(player.position.x-5 <= x && x <= player.position.x+5
-               player.position.y-5 <= y && y <= player.position.y+5 && ) {
+            if(near_player(y, x, y_sight_range, x_sight_range)) {
+                
+                if(x == 0 || x == player.position.x - x_sight_range) {
+                    printf("\n");
+                }
                 
                 printf("[");
                 
                 if( field[y][x].wall )
                 {
-                    printf("WWW");
+                    printf("===");
                 }
                 else
                 {
@@ -213,5 +217,119 @@ void map(void) {
             }
         }
     }
-    printf("\n\n");
+    printf("\n");
+}
+
+
+/**Is the Room in range of the Player?
+ * 
+ * returns a boolean that tells if field[@y][@x] is in range of the player
+ * @y_range and @x_range determine the (kinda) radius of the range
+ */
+bool near_player(int y, int x, int y_range, int x_range) {
+    
+    if(player.position.x-x_range <= x && x <= player.position.x+x_range
+    && player.position.y-y_range <= y && y <= player.position.y+y_range) {
+        
+        if (at_home(player.position.y, player.position.x) && at_home(y, x)) {
+            return true;
+        } else if (at_city(player.position.y, player.position.x) && at_city(y, x)) {
+            return true;
+        } else if (at_friend(player.position.y, player.position.x) && at_friend(y, x)) {
+            return true;
+        } else if (at_baby(player.position.y, player.position.x) && at_baby(y, x)) {
+            return true;
+        } else {
+            return false;
+        }
+        
+    } else {
+        
+        return false;
+    }
+}
+
+
+bool at_home(int given_y, int given_x) {
+    
+    Position top_left_corner;
+    top_left_corner.y = 0;
+    top_left_corner.x = 0;
+    
+    Position bot_right_corner;
+    bot_right_corner.y = 9;
+    bot_right_corner.x = 7;
+    
+    if( given_x <= bot_right_corner.x &&
+        given_y <= bot_right_corner.y &&
+        given_x >=  top_left_corner.x &&
+        given_y >=  top_left_corner.y    ) {
+            
+            return true;
+        } else {
+            return false;
+        }
+}
+
+bool at_city(int given_y, int given_x) {
+    
+    Position top_left_corner;
+    top_left_corner.y = 11;
+    top_left_corner.x = 0;
+    
+    Position bot_right_corner;
+    bot_right_corner.y = 28;
+    bot_right_corner.x = 10;
+    
+    if( given_x <= bot_right_corner.x &&
+        given_y <= bot_right_corner.y &&
+        given_x >=  top_left_corner.x &&
+        given_y >=  top_left_corner.y    ) {
+            
+            return true;
+        } else {
+            return false;
+        }
+}
+
+bool at_friend(int given_y, int given_x) {
+    
+    Position top_left_corner;
+    top_left_corner.y = 31;
+    top_left_corner.x = 0;
+    
+    Position bot_right_corner;
+    bot_right_corner.y = 37;
+    bot_right_corner.x = 4;
+    
+    if( given_x <= bot_right_corner.x &&
+        given_y <= bot_right_corner.y &&
+        given_x >=  top_left_corner.x &&
+        given_y >=  top_left_corner.y    ) {
+            
+            return true;
+        } else {
+            return false;
+        }
+}
+
+bool at_baby(int given_y, int given_x) {
+    
+    Position top_left_corner;
+    top_left_corner.y = 31;
+    top_left_corner.x = 6;
+    
+    Position bot_right_corner;
+    bot_right_corner.y = 34;
+    bot_right_corner.x = 8;
+    
+    if( given_x <= bot_right_corner.x &&
+        given_y <= bot_right_corner.y &&
+        given_x >=  top_left_corner.x &&
+        given_y >=  top_left_corner.y    ) {
+            
+            return true;
+        } else {
+            return false;
+        }
 }

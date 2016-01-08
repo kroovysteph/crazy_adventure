@@ -23,6 +23,7 @@
 Room **field;
 Player player;
 Enemy bear;
+int difficulty;
 
 typedef struct Turncounter {
     int current_turn;
@@ -65,7 +66,13 @@ void print_tombstone(void);
 Checkpoints create_checkpoints(void);
 Turncounter create_Turncounter(void);
 void cp_event(int cp_counter);
-void map(void);
+void map(int sight_range);
+bool near_player(int y, int x, int y_range, int x_range);
+bool at_home(int given_y, int given_x);
+bool at_city(int given_y, int given_x);
+bool at_friend(int given_y, int given_x);
+bool at_baby(int given_y, int given_x);
+
 
 
 

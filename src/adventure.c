@@ -10,10 +10,41 @@
  */
 void init_game(void)
 {
+    char dump[1000];
+    int status;
+    
     //Init the playground containing the different rooms.
     init_field();
-    
     print_title();
+    
+    //read difficulty
+    difficulty = 0;
+    while ( !(difficulty == 1 || difficulty == 2 || difficulty == 3) ) {
+        printf("\nPlease enter the difficulty: ");
+        printf("\n(This effects, e.g. how far you can see when using \"map\".)");
+        printf("\n(1) hard");
+        printf("\n(2) medium");
+        printf("\n(3) easy");
+        printf("\n(1/2/3): ");
+        status = scanf("%d", &difficulty);
+        
+        if (status == 0) {
+            //catch wrong input (= String)
+            scanf("%s", dump);
+        }
+    }
+    switch (difficulty) {
+        case (1):
+            printf("You chose \"hard\".\n\n");
+            break;
+        case (2):
+            printf("You chose \"medium\".\n\n");
+            break;
+        case (3):
+            printf("You chose \"easy\".\n\n");
+            break;
+    }
+    
     //Init Player with a chosen name (using standard-input-output).
     char s[25] = "";
     printf("\nPlease enter your name: ");
@@ -91,6 +122,9 @@ void game_loop(void)
     
     while(evaluate(cp))
     {
+        if(difficulty != 1) {
+            map(difficulty);
+        }
         turn.current_turn++;
         int c = 0;
         printf("> ");
@@ -146,7 +180,7 @@ void game_loop(void)
         }
         else if(strcmp(input1, "map") == 0)
         {
-            map();
+            map(difficulty);
         }
         else if(strcmp(input1, "man") == 0 || 0 == strcmp(input1, "help"))
         {

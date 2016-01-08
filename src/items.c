@@ -266,6 +266,69 @@ Item *create_item(char item[])
         
         return i;
     }
+    else if(0 == strcmp(item, "Shower"))
+    {
+        epic_string_cpy("shower", i->name);
+        i->weight = 1000;
+        
+        return i;
+    }
+    else if(0 == strcmp(item, "Washbin"))
+    {
+        epic_string_cpy("washbin", i->name);
+        i->weight = 1000;
+        
+        return i;
+    }
+    else if(0 == strcmp(item, "Barrier"))
+    {
+        epic_string_cpy("barrier", i->name);
+        i->weight = 1000;
+        
+        return i;
+    }
+    else if(0 == strcmp(item, "Cupboard"))
+    {
+        epic_string_cpy("cupboard", i->name);
+        i->weight = 1000;
+        
+        return i;
+    }
+    else if(0 == strcmp(item, "Note"))
+    {
+        epic_string_cpy("note", i->name);
+        i->weight = 1;
+        
+        return i;
+    }
+    else if(0 == strcmp(item, "Shelve"))
+    {
+        epic_string_cpy("shelve", i->name);
+        i->weight = 1000;
+        
+        return i;
+    }
+    else if(0 == strcmp(item, "Hero_Picture"))
+    {
+        epic_string_cpy("picture", i->name);
+        i->weight = 1;
+        
+        return i;
+    }
+    else if(0 == strcmp(item, "Car_Bed"))
+    {
+        epic_string_cpy("bed", i->name);
+        i->weight = 1000;
+        
+        return i;
+    }
+    else if(0 == strcmp(item, "Water_Bed"))
+    {
+        epic_string_cpy("bed", i->name);
+        i->weight = 1000;
+        
+        return i;
+    }
     
 //--------------------add-before-this-line----------------------
     return i;
