@@ -176,6 +176,54 @@ void put_item(void) {
     }
 }
 
+/*
+void apply(void) {
+    
+    bool found = false;
+    char input2[25] = "";
+    
+    int x = player.position.x;
+    int y = player.position.y;
+    
+    scanf("%s", input2);
+    Item *item;
+    found = false;
+    
+    int c = 0;
+    while(input2[c] != '\0')
+    {
+        input2[c] = tolower(input2[c]);
+        c++;
+    }
+    
+    for(int i = 0; i < l_length(player.inventory); i++)
+    {
+        //geht durch die Liste
+        item = l_get(player.inventory, i);
+        
+        if(strcmp(item->name, input2) == 0) {
+            
+            found = true;
+            player.weight_carrying += item->weight;
+            
+            l_append(field[y][x].items, item);
+            
+            if(strcmp(item->name, "backpack") == 0) {
+                player.capacity -= item->additional_capacity;
+            }
+            
+            printf("\nYou dropped a %s.\n", item->name);
+            l_remove(player.inventory, i);
+            break;
+        }
+    }
+    
+    if(!(found))
+    {
+        printf("\nYou have nothing like \"%s\"...\n", input2);
+    }
+}
+*/
 
 void list_items(void) {
     
