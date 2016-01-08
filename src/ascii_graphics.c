@@ -21,3 +21,20 @@ void print_title(void) {
     printf("\n\n\n\n\n\n\t\t\t < press Enter to continue >\n");
     getchar();
 }
+
+void print_tombstone(void) {
+    
+    /** TODO: implement graphics
+     * 
+     *          _______
+     *         /       \
+     *        |  R.I.P  |
+     *        |         |
+     *        | <name>  |
+     *        |         |
+     *     ,.\|         |/.,
+     *      
+     */
+    
+    printf("\n R.i.P. \n");
+}

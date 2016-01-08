@@ -84,10 +84,14 @@ void game_loop(void)
 {
     print_field();
     
+    Checkpoints cp = create_checkpoints();
+    Turncounter turn = create_Turncounter();
+    
     char input1[25] = "";
     
-    while(true)
+    while(evaluate(cp, turn))
     {
+        turn.current_turn++;
         int c = 0;
         printf("> ");
         scanf("%s", input1);
@@ -140,10 +144,19 @@ void game_loop(void)
         {
             list_items();
         }
+        else if(strcmp(input1, "man") == 0 || 0 == strcmp(input1, "help"))
+        {
+            print_manual();
+        }
+        else if(0 == strcmp(input1, "stats"))
+        {
+            print_stats();
+        }
         else if(strcmp(input1, "quit") == 0 || 0 == strcmp(input1, "q"))
         {
-            printf("You have successfully closed the game.\n");
-            break;
+            if (quit()) {
+                break;
+            }
         }
         else
         {

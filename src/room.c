@@ -142,3 +142,15 @@ void print_field(void)
 }
 
 
+Checkpoints create_checkpoints(void) {
+    
+    Checkpoints cp;
+    
+    cp.supermarket = false;
+    cp.townhall = false;
+    cp.church = false;
+    cp.school = false;
+    cp.trainstation = false;
+    
+    return cp;
+}

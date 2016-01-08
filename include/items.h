@@ -5,7 +5,7 @@
 typedef struct Item
 {
     char name[50];
-    char flavour_text[500];
+    char flavour_text[1000];
     int damage;
     int weight;
     //TODO: Message if you´re looking at an item!

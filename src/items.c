@@ -204,7 +204,7 @@ Item *create_item(char item[])
     }
     else if(0 == strcmp(item, "Cash_Register"))
     {
-        epic_string_cpy("cashregister", i->name);
+        epic_string_cpy("cash", i->name);
         i->weight = 2;
         
         return i;
@@ -213,6 +213,56 @@ Item *create_item(char item[])
     {
         epic_string_cpy("picture", i->name);
         i->weight = 1000;
+        
+        return i;
+    }
+    else if(0 == strcmp(item, "Donation_Box"))
+    {
+        epic_string_cpy("donation", i->name);
+        i->weight = 1000;
+        
+        return i;
+    }
+    else if(0 == strcmp(item, "Crucifix"))
+    {
+        epic_string_cpy("crucifix", i->name);
+        i->weight = 1000;
+        
+        return i;
+    }
+    else if(0 == strcmp(item, "Locker"))
+    {
+        epic_string_cpy("locker", i->name);
+        i->weight = 1000;
+        
+        return i;
+    }
+    else if(0 == strcmp(item, "First_Aid_Kit"))
+    {
+        epic_string_cpy("kit", i->name);
+        i->weight = 2;
+        i->hp_regeneration = 5; //apply
+        
+        return i;
+    }
+    else if(0 == strcmp(item, "Lectern"))
+    {
+        epic_string_cpy("lectern", i->name);
+        i->weight = 1000;
+        
+        return i;
+    }
+    else if(0 == strcmp(item, "Bible"))
+    {
+        epic_string_cpy("bible", i->name);
+        i->weight = 2;
+        
+        return i;
+    }
+    else if(0 == strcmp(item, "Chair"))
+    {
+        epic_string_cpy("chair", i->name);
+        i->weight = 2;
         
         return i;
     }

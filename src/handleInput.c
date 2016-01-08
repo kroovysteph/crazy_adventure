@@ -96,6 +96,7 @@ void get_item(void) {
         //geht durch die Liste
         item = l_get(field[y][x].items, i);
         
+        
         if(strcmp(item->name, input2) == 0) {
             
             found = true;
@@ -104,9 +105,12 @@ void get_item(void) {
                 
                 player.weight_carrying += item->weight;
                 l_append( player.inventory, item);
-                l_remove(field[y][x].items, i);
+                
                 printf("\nYou have gained a %s.\n", item->name);
+                
+                l_remove(field[y][x].items, i);
                 break;
+                
             } else {
                 printf("\nA \"%s\" is too heavy for carrying.\n", item->name);
             }
@@ -234,4 +238,73 @@ void look(void) {
     if(!DEBUG_MODE) {
         print_itemlist(field[y][x].items);
     }
+}
+
+int quit(void) {
+    
+    char input2[25];
+    
+    printf("\nDo you really want to quit?\n> (yes/no): ");
+    scanf("%s", input2);
+    
+    int c = 0;
+    while(input2[c] != '\0') {
+        input2[c] = tolower(input2[c]);
+        c++;
+    }
+    
+    if(strcmp(input2, "yes") == 0 || 0 == strcmp(input2, "y")) {
+        
+        printf("You have successfully closed the game.\n");
+        return 1;
+        
+    } else if(strcmp(input2, "no") == 0 || 0 == strcmp(input2, "n")) {
+        
+        printf("\n...back to the game!\n");
+        print_field();
+        return 0;
+        
+    } else {
+        
+        printf("\nWhat do you mean by \"%s\"?", input2);
+        return quit();
+    }
+    
+}
+
+
+void print_manual(void) {
+    
+    printf("\n");
+    printf("left,  l       :  go west\n");
+    printf("right, r       :  go east\n");
+    printf("up,    u       :  go north\n");
+    printf("down,  d       :  go south\n");
+    printf("look           :  look around (items included)\n");
+    printf("get <item>     :  pick up an item (keyword is enough)\n");
+    printf("put <item>     :  drop an item\n");
+    printf("examine <item> :  get more details on an item/object\n");
+    printf("quit           :  quits the game\n");
+    printf("ls             :  lists items of inventory and room\n");
+    printf("stats          :  lists player's stats\n");
+    printf("apply, a       :  sorry, not implemented yet\n");
+    printf("hide           :  sorry, not implemented yet\n");
+    printf("attack         :  sorry, not implemented yet\n");
+    printf("man, help      :  shows this help menu\n");
+    
+}
+
+
+void print_stats(void) {
+    
+    int health    = player.health;
+    int max_load  = player.capacity;
+    int cur_load  = player.weight_carrying;
+    int alignment = player.alignment;
+    int damage    = player.damage;
+    int x         = player.position.x;
+    int y         = player.position.y;
+    
+    printf("\n%s = { Health: %d | Load: %d/%d | Alignment: %d | Damage: %d | Coords: (%d,%d) }\n",
+            player.name, health, max_load, cur_load, alignment, damage, y, x);
 }

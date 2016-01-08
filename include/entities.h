@@ -1,5 +1,5 @@
-#ifndef PLAYER_H
-#define PLAYER_H
+#ifndef ENTITIES_H
+#define ENTITIES_H
 
 
 /**The actual Position of the Player.
@@ -25,5 +25,9 @@ typedef struct Player
     int damage;
 } Player;
 
+typedef struct Enemy {
+    char name[25];
+    Position position;
+} Enemy;
 
 #endif
