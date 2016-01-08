@@ -65,6 +65,7 @@ void print_tombstone(void);
 Checkpoints create_checkpoints(void);
 Turncounter create_Turncounter(void);
 void cp_event(int cp_counter);
+void map(void);
 
 
 

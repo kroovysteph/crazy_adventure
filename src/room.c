@@ -148,9 +148,70 @@ Checkpoints create_checkpoints(void) {
     
     cp.supermarket = false;
     cp.townhall = false;
+    
     cp.church = false;
     cp.school = false;
     cp.trainstation = false;
     
     return cp;
+}
+
+void map(void) {
+    
+    int c = 0;
+    
+    //print graphical field
+    for(int y = 0; y < FIELD_HEIGHT; y++)
+    {
+        if(y > 0) {
+            printf("\n");
+        }
+        for(int x = 0; x < FIELD_WIDTH; x++)
+        {
+            if(player.position.x-5 <= x && x <= player.position.x+5
+               player.position.y-5 <= y && y <= player.position.y+5 && ) {
+                
+                printf("[");
+                
+                if( field[y][x].wall )
+                {
+                    printf("WWW");
+                }
+                else
+                {
+                    if(player.position.x == x && player.position.y == y)
+                    //Player is in this room.
+                    {
+                        printf("P");
+                    }
+                    else
+                    {
+                        printf(" ");
+                    }
+                    
+                    
+                    if(1 == l_length(field[y][x].items) )
+                    {
+                        //Should be void*, beucase we dont know which struct we´ll look at.
+                        //Cant dereference void*!
+                        Item * i1 = l_get(field[y][x].items, 0);
+                        printf( "%c ", i1->name[0] );
+                    }
+                    else if(2 <= l_length(field[y][x].items))
+                    {
+                        Item * i1 = l_get(field[y][x].items, 0);
+                        Item * i2 = l_get(field[y][x].items, 1);
+                        
+                        printf("%c%c", i1->name[0], i2->name[0]);
+                    }
+                    else
+                    {
+                        printf("  ");
+                    }
+                }
+                printf("] ");
+            }
+        }
+    }
+    printf("\n\n");
 }

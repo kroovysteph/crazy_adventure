@@ -144,6 +144,10 @@ void game_loop(void)
         {
             list_items();
         }
+        else if(strcmp(input1, "map") == 0)
+        {
+            map();
+        }
         else if(strcmp(input1, "man") == 0 || 0 == strcmp(input1, "help"))
         {
             print_manual();
