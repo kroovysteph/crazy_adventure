@@ -32,9 +32,9 @@ Room 2 8 Es_ist_ein_wunderschoener_schoener_Tag! <item1> <item2> <item3> <item4>
 Room 2 9 Es_ist_ein_wunderschoener_schoener_Tag! <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
 Room 2 10 Es_ist_ein_wunderschoener_schoener_Tag! <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
 Wall 3 0 Wall! <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
-Room 3 1 Through_a_door_you're_entering_the_bathroom_of_the_house._There_seems_to_be_nothing_special_about_it,_but_one_thing_you_notice_by_briefly_looking. Newspaper <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
+Room 3 1 Through_a_door_you're_entering_the_bathroom_of_the_house._There_seems_to_be_nothing_special_about_it,_but_one_thing_you_notice_by_briefly_looking._You_can_leave_the_room_by_going_east. Newspaper <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
 Room 3 2 You_are_in_a_corridor._You_can_follow_the_corridor_in_your_northern_direction._To_your_east_and_west_side_are_rooms. <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
-Room 3 3 By_slightly_pushing_away_the_door_you_can_see_a_child's_room._There_are_some_toys,_a_bed,_a_wardrobe_and_a_desk. Picture_Child Bed Wardrobe Desk Toys <item6> <item7> <item8> <item9> <item10>
+Room 3 3 By_slightly_pushing_away_the_door_you_can_see_a_child's_room._There_are_some_toys,_a_bed,_a_wardrobe_and_a_desk._You_can_leave_the_room_in_the_western_direction. Picture_Child Bed Wardrobe Desk Toys <item6> <item7> <item8> <item9> <item10>
 Wall 3 4 Wall! <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
 Room 3 5 You_are_in_a_corridor._You_can_follow_the_corridor_in_your_northern_direction._By_following_it_in_the_southern_direction_you'll_get_down_the_stairs. <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
 Wall 3 6 Wall! <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
@@ -54,7 +54,7 @@ Room 4 8 Es_ist_ein_wunderschoener_schoener_Tag! <item1> <item2> <item3> <item4>
 Room 4 9 Es_ist_ein_wunderschoener_schoener_Tag! <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
 Room 4 10 Es_ist_ein_wunderschoener_schoener_Tag! <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
 Wall 5 0 Wall! <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
-Room 5 1 You_find_yourself_in_a_storage_and_washing_room._If_you'll_go_south_you'll_reach_the_kitchen. <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
+Room 5 1 You_find_yourself_in_a_storage_and_washing_room._If_you'll_go_south_you'll_reach_the_kitchen,_in_the_eastern_direction_you'll_get_to_a_corridor. <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
 Room 5 2 You_are_in_a_corridor._You_can_follow_the_corridor_in_your_eastern_direction._By_going_south_you'll_open_a_door_and_get_into_another_room._In_te_western_direction_is_a_washing_room. <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
 Room 5 3 You_are_in_a_corridor._You_can_follow_the_corridor_in_your_eastern_and_western_direction._To_your_south_side_is_another_entrance. <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
 Room 5 4 You_are_in_a_corridor._You_can_follow_the_corridor_in_your_eastern_and_western_direction. <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
@@ -143,14 +143,14 @@ Wall 12 9 Wall! <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> 
 Wall 12 10 Wall! <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
 Wall 13 0 Wall! <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
 Room 13 1 You_are_now_at_the_beginning_of_the_street._A_roadsign_reveals_it's_name:_"Baker_Street"._By_going_north_you'll_get_to_the_house_where_you_woke_up._Another_street_-_whose_end_you_cannot_see_-_is_at_your_eastern_side. <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
-Room 13 2 You_are_on_a_street._You_can_follow_it_in_your_eastern_and_western_direction.A_wolf_shows_up_and_attacks_you. Wolf <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
+Room 13 2 You_are_on_a_street._You_can_follow_it_in_your_eastern_and_western_direction. <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
 Room 13 3 You_are_on_a_street._You_can_follow_it_in_your_eastern_and_western_direction._You're_standing_right_next_to_a_supermarket._To_enter_it_you_need_to_go_in_the_southern_direction. <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
 Room 13 4 You_are_on_a_street._You_can_follow_it_in_your_eastern_and_western_direction. <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
 Room 13 5 You_are_on_a_street._You_can_follow_it_in_your_eastern,_western_and_southern_direction. <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
 Room 13 6 You_are_on_a_street._You_can_follow_it_in_your_eastern_and_western_direction. <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
 Room 13 7 You_are_on_a_street._You_can_follow_it_in_your_eastern_and_western_direction._In_your_southern_direction_you_can_see_the_entrance_to_the_railway_station_of_the_city. <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
 Room 13 8 You_are_on_a_street._You_can_follow_it_in_your_eastern_and_western_direction. <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
-Room 13 9 You_are_on_a_street._You_can_follow_it_in_your_southern_and_western_direction._A_dog_shows_up_and_attacks_you. Dog <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
+Room 13 9 You_are_on_a_street._You_can_follow_it_in_your_southern_and_western_direction. <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
 Wall 13 10 Wall! <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
 Wall 14 0 Wall! <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
 Wall 14 1 Wall! <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
@@ -275,7 +275,7 @@ Room 24 9 Es_ist_ein_wunderschoener_schoener_Tag! <item1> <item2> <item3> <item4
 Room 24 10 Es_ist_ein_wunderschoener_schoener_Tag! <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
 Room 25 0 Es_ist_ein_wunderschoener_schoener_Tag! <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
 Wall 25 1 Wall! <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
-Room 25 2 You_are_on_a_street._You_can_follow_it_in_your_southern_direction._To_your_northern_side_is_the_entrance_to_a_school._A_wolf_appears_and_attacks_you. Wolf <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
+Room 25 2 You_are_on_a_street._You_can_follow_it_in_your_southern_direction._To_your_northern_side_is_the_entrance_to_a_school. <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
 Wall 25 3 Wall! <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
 Wall 25 4 Wall! <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
 Room 25 5 You_are_on_a_street._You_can_follow_it_in_your_southern_and_northern_direction. <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>

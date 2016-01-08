@@ -24,17 +24,20 @@ void print_title(void) {
 
 void print_tombstone(void) {
     
-    /** TODO: implement graphics
-     * 
-     *          _______
-     *         /       \
-     *        |  R.I.P  |
-     *        |         |
-     *        | <name>  |
-     *        |         |
-     *     ,.\|         |/.,
-     *      
-     */
-    
-    printf("\n R.i.P. \n");
+printf("        _.---,._,' \n");
+printf("       /' _.--.< \n");
+printf("         /'     `' \n");
+printf("       /' _.---._____ \n");
+printf("       \\.'   ___, .-'` \n");
+printf("           /'    \\\\             .\n");
+printf("         /'       `-.          -|-\n");
+printf("        |                       |\n");
+printf("        |                   .-'~~~`-.\n");
+printf("        |                 .'         `.\n");
+printf("        |                 |  R  I  P  |\n");
+printf("        |                 |           |\n");
+printf("        |                 |           |\n");
+printf("         \\              \\\\|           |//\n");
+printf("   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n");
+printf("\n\n");
 }

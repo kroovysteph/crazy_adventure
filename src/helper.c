@@ -103,16 +103,16 @@ void random_string(char input[])
             printf("\nYou´re going %s.\n", direction);
             break;
         case 2:
-            printf("\nYou´re walking across a way that´s headed %s.\n", direction);
+            printf("\nYou´re walking %s.\n", direction);
             break;
         case 3:
-            printf("\nAfter a long and burdened journey you reach the far %s.\n", direction);
+            printf("\nYou reach the %s.\n", direction);
             break;
         case 4:
-            printf("\nWith great efford you reach your destination in the %s.\n", direction);
+            printf("\nYou reach your destination in the %s.\n", direction);
             break;
         case 5:
-            printf("\nYou are finally there: The %s!\n", direction);
+            printf("\nYou reach the place that's to your %sern side!\n", direction);
             break;
         default:
             break;
@@ -190,4 +190,21 @@ Turncounter create_Turncounter(void) {
     turn.bear_event = false;
     
     return turn;
+}
+
+
+void cash_donationbox_same(void) {
+    
+    Item *item;
+    
+    for (int i=0; i < l_length(field[20][7].items); i++) {
+        
+        item = l_get(field[20][7].items, i);
+        
+        if (0 == strcmp("cash", item->name) && !donated) {
+            player.damage = player.damage + 1;
+            player.alignment = player.alignment + 1;
+            printf("You feel stronger and better. You even think you're a better person now!\n");
+        }
+    }
 }

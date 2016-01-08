@@ -12,6 +12,7 @@ void init_game(void)
 {
     char dump[1000];
     int status;
+    donated = false;
     lv1 = init_level1();
     //lv2 = init_level2();
     

@@ -14,6 +14,8 @@ int evaluate(void) {
     int x = player.position.x;
     int y = player.position.y;
     
+    cash_donationbox_same();
+    
     if(quest1_solved()) {
         epic_string_cpy("You are leaving your house.\n", field[5][6].ambience);
     }
@@ -58,6 +60,17 @@ int evaluate(void) {
             turn.bear_event = false;
             printf("\nThe bear is gone!\n");
             place_bear_behind_player();
+//------------------------------------------------------------------------------
+            epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[16][5].ambience);
+            epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[17][5].ambience);
+            epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[18][5].ambience);
+            epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[19][5].ambience);
+            epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[20][5].ambience);
+            epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[21][5].ambience);
+            epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[22][5].ambience);
+            epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[23][5].ambience);
+            epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[24][5].ambience);
+//------------------------------------------------------------------------------
             print_field();
         }
         else
@@ -73,6 +86,17 @@ int evaluate(void) {
                 turn.bear_event = false;
                 printf("\nThe bear is gone!\n");
                 place_bear_behind_player();
+//------------------------------------------------------------------------------
+                epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[16][5].ambience);
+                epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[17][5].ambience);
+                epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[18][5].ambience);
+                epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[19][5].ambience);
+                epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[20][5].ambience);
+                epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[21][5].ambience);
+                epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[22][5].ambience);
+                epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[23][5].ambience);
+                epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[24][5].ambience);
+//------------------------------------------------------------------------------
                 print_field();
             }
             else
@@ -262,6 +286,7 @@ int evaluate(void) {
         printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         return 0;
     }
+    
     
     return 1;
 }
