@@ -387,11 +387,11 @@ Item *create_item(char item[])
         
         return i;
     }
-    else if(0 == strcmp(item, "Cupboard"))
+    else if(0 == strcmp(item, "Cupboards"))
     {
-        epic_string_cpy("cupboard", i->name);
+        epic_string_cpy("cupboards", i->name);
         i->weight = 1000;
-        epic_string_cpy("An empty cupboard.", i->flavour_text);
+        epic_string_cpy("Empty cupboards.", i->flavour_text);
         
         return i;
     }
@@ -410,9 +410,9 @@ Item *create_item(char item[])
         epic_string_cpy("You're looking into a shelve that contains an axe. A neat axe indeed.", i->flavour_text);
         return i;
     }
-    else if(0 == strcmp(item, "Hero_Picture"))
+    else if(0 == strcmp(item, "Hero_Pictures"))
     {
-        epic_string_cpy("picture", i->name);
+        epic_string_cpy("pictures", i->name);
         i->weight = 1;
         epic_string_cpy("Your child's friend seems to like super heroes like every other child. There's a picture of Batman.", i->flavour_text);
         

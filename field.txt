@@ -373,7 +373,7 @@ Wall 33 8 Wall! <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> 
 Room 33 9 Es_ist_ein_wunderschoener_schoener_Tag! <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
 Room 33 10 Es_ist_ein_wunderschoener_schoener_Tag! <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
 Wall 34 0 Wall! <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
-Room 34 1 The_kitchen_has_a_some_chairs_and_a_table_some_cupboards._A_normal_kitchen. Chair Table Cupboard <item4> <item5> <item6> <item7> <item8> <item9> <item10>
+Room 34 1 The_kitchen_has_a_some_chairs,a_table_and_some_cupboards._A_normal_kitchen. Chairs Table Cupboards <item4> <item5> <item6> <item7> <item8> <item9> <item10>
 Room 34 2 You_are_on_a_corridor._You_can_follow_it_to_your_northern_and_southern_direction._Rooms_are_in_your_eastern_an_western_direction. <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
 Room 34 3 The_living_room_contains_a_couch,_a_table,_some_chairs,_and_a_TV._You_can_see_a_note_on_the_table. Note <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
 Wall 34 4 Wall! <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
@@ -397,7 +397,7 @@ Room 35 10 Es_ist_ein_wunderschoener_schoener_Tag! <item1> <item2> <item3> <item
 Wall 36 0 Wall! <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
 Room 36 1 This_is_the_room_of_your_child's_friend._You_can_see_some_super_hero_pictures_on_the_walls._A_bed,_designed_like_a_car,_is_stading_right_next_to_western_wall. Hero_Picture Car_Bed <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
 Room 36 2 You_are_on_a_corridor._You_can_follow_it_to_your_northern_direction._Rooms_are_in_your_eastern_an_western_direction. <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
-Room 36 3 The_parent's_bedroom_set_up_pretty_decent._A_carpet_is_right_in_front_of_the_huge_water_bed._On_the_left_and_right_side_of_the_bed_are_nightstands._A_big_wardrobe_is_standing_at_the_right_side_of_the_room. Carpet Water_Bed Nightstand Wardrobe <item5> <item6> <item7> <item8> <item9> <item10>
+Room 36 3 The_parent's_bedroom_is_set_up_pretty_decent._A_carpet_is_right_in_front_of_the_huge_water_bed._On_the_left_and_right_side_of_the_bed_are_nightstands._A_big_wardrobe_is_standing_at_the_right_side_of_the_room. Carpet Water_Bed Nightstand Wardrobe <item5> <item6> <item7> <item8> <item9> <item10>
 Wall 36 4 Wall! <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
 Room 36 5 Es_ist_ein_wunderschoener_schoener_Tag! <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
 Room 36 6 Es_ist_ein_wunderschoener_schoener_Tag! <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
