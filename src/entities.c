@@ -10,18 +10,15 @@ Player init_player(char s[])
     p.inventory = l_create(sizeof(Item));
     
     //regular start
-    p.position.x = 1;
-    p.position.y = 1;
+    p.position.x = 1; p.position.y = 1;
     
     //bear event
-    //p.position.x = 5;
-    //p.position.y = 15;
+    //p.position.x = 5; p.position.y = 15;
     
     //friend's house
-    //p.position.x = 2;
-    //p.position.y = 32;
+    //p.position.x = 2; p.position.y = 32;
     
-    p.capacity = 50;
+    p.capacity = 10;
     p.weight_carrying = 0;
     p.health = 10.0;
     p.alignment = 0;
@@ -52,7 +49,7 @@ void place_bear_behind_player(void) {
     epic_string_cpy("bear", bear->name);
     
     //remove old bears
-    for (y=15; y<=25; y++) {
+    for (y=13; y<=25; y++) {
         for(int i=0; i < l_length(field[y][5].items); i++) {
             
             item = l_get(field[y][5].items, i);

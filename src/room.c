@@ -156,6 +156,7 @@ Checkpoints create_checkpoints(void) {
     return cp;
 }
 
+
 void map(int sight_range) {
     
     int x_sight_range = sight_range;

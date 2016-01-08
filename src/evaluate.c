@@ -255,8 +255,8 @@ int evaluate(void) {
         printf("\t\t\tpeople alive. In the astonished crowd you can hear\n");
         printf("\t\t\tsomeone screaming. You recognize that voice. Suddenly\n");
         printf("\t\t\tyou can see your  child crying and  running  in your \n");
-        printf("\t\t\tdirection.  You've  managed  to  find  your  child\n");
-        printf("\n\n\n\n\n\n\t\t\t < press Enter to close the game >\n");
+        printf("\t\t\tdirection.  You've  managed  to  find  your  child.\n");
+        printf("\n\n\n\n\n\n\t\t\t\t < press Enter to close the game >\n");
         getchar();
         getchar();
         printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");

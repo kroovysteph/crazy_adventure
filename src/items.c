@@ -103,6 +103,14 @@ Item *create_item(char item[])
         
         return i;
     }
+    else if(0 == strcmp(item, "Tables"))
+    {
+        epic_string_cpy("tables", i->name);
+        i->weight = 1000; //Cant carry.
+        epic_string_cpy("These are wooden tables. Rather brigther wood.", i->flavour_text);
+        
+        return i;
+    }
     else if(0 == strcmp(item, "Dishes"))
     {
         epic_string_cpy("dishes", i->name);
@@ -270,7 +278,7 @@ Item *create_item(char item[])
     {
         epic_string_cpy("cash", i->name);
         i->weight = 1;
-        epic_string_cpy("It's money. US$", i->flavour_text);
+        epic_string_cpy("It's money. British £", i->flavour_text);
         
         return i;
     }
@@ -287,6 +295,14 @@ Item *create_item(char item[])
         epic_string_cpy("donation", i->name);
         i->weight = 1000;
         epic_string_cpy("You notice a donation box. You can't imagine any reason to put money in there, becuase you seem to be the last person - at least - in this city, but you're just feeling like money isn't worth anything to you right now. The question is if you've got some \"cash\" in your pockets to \"put\" it in there.", i->flavour_text);
+        
+        return i;
+    }
+    else if(0 == strcmp(item, "Curtain"))
+    {
+        epic_string_cpy("curtain", i->name);
+        i->weight = 1000;
+        epic_string_cpy("This is a big black curtain.", i->flavour_text);
         
         return i;
     }
@@ -336,6 +352,14 @@ Item *create_item(char item[])
         epic_string_cpy("chair", i->name);
         i->weight = 2;
         epic_string_cpy("A wooden chair.", i->flavour_text);
+        
+        return i;
+    }
+    else if(0 == strcmp(item, "Chairs"))
+    {
+        epic_string_cpy("chairs", i->name);
+        i->weight = 2;
+        epic_string_cpy("Some wooden chairs.", i->flavour_text);
         
         return i;
     }

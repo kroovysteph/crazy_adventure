@@ -176,14 +176,10 @@ void put_item(void) {
     }
 }
 
-/*
 void apply(void) {
     
     bool found = false;
     char input2[25] = "";
-    
-    int x = player.position.x;
-    int y = player.position.y;
     
     scanf("%s", input2);
     Item *item;
@@ -204,16 +200,29 @@ void apply(void) {
         if(strcmp(item->name, input2) == 0) {
             
             found = true;
-            player.weight_carrying += item->weight;
-            
-            l_append(field[y][x].items, item);
-            
-            if(strcmp(item->name, "backpack") == 0) {
-                player.capacity -= item->additional_capacity;
+//------------------------------------------------------------------kit---------
+            if(strcmp("kit", input2) == 0) {
+                player.weight_carrying -= item->weight;
+                player.health += item->hp_regeneration;
+                printf("\nYou applied a medi-kit to yourself.\n");
+                l_remove(player.inventory, i);
             }
-            
-            printf("\nYou dropped a %s.\n", item->name);
-            l_remove(player.inventory, i);
+//------------------------------------------------------------------pills-------
+            else if(strcmp("pills", input2) == 0) {
+                player.weight_carrying -= item->weight;
+                player.health += item->hp_regeneration;
+                printf("\nYou take some pills. You feel a bit better.\n");
+                l_remove(player.inventory, i);
+            }
+//-------------------------------------------------------------------map--------
+            else if(strcmp("map", input2) == 0) {
+                printf("\nYou getter a better understanding of the environment.\n");
+                difficulty = 1000;
+            }
+//------------------------------------------------------------------------------
+            else {
+                printf("\nThat is a silly thin to apply.\n");
+            }
             break;
         }
     }
@@ -223,7 +232,6 @@ void apply(void) {
         printf("\nYou have nothing like \"%s\"...\n", input2);
     }
 }
-*/
 
 void list_items(void) {
     
@@ -374,7 +382,7 @@ void print_manual(void) {
     printf("quit           :  quits the game\n");
     printf("ls             :  lists items of inventory and room\n");
     printf("stats          :  lists player's stats\n");
-    printf("apply, a       :  sorry, not implemented yet\n");
+    printf("apply, a <item>:  use an item\n");
     printf("hide           :  hide before enemies, like bears and so on\n");
     printf("attack         :  sorry, not implemented yet\n");
     printf("man, help      :  shows this help menu\n");
@@ -387,11 +395,10 @@ void print_stats(void) {
     int health    = player.health;
     int max_load  = player.capacity;
     int cur_load  = player.weight_carrying;
-    int alignment = player.alignment;
     int damage    = player.damage;
     int x         = player.position.x;
     int y         = player.position.y;
     
-    printf("\n%s = { Health: %d | Load: %d/%d | Alignment: %d | Damage: %d | Coords: (%d,%d) }\n",
-            player.name, health, cur_load, max_load, alignment, damage, y, x);
+    printf("\n%s = { Health: %d | Load: %d/%d | Turn: %d | Damage: %d | Coords: (%d,%d) }\n",
+            player.name, health, cur_load, max_load, turn.current_turn, damage, y, x);
 }

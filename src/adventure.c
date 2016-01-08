@@ -128,7 +128,7 @@ void game_loop(void)
     
     while(evaluate())
     {
-        if(difficulty != 1 && difficulty != 2) {
+        if(difficulty != 1) {
             map(difficulty);
         }
         turn.current_turn++;
@@ -180,6 +180,10 @@ void game_loop(void)
         {
             examine();
         }
+        else if(strcmp(input1, "apply") == 0 || 0 == strcmp(input1, "a"))
+        {
+            apply();
+        }
         else if(0 == strcmp(input1, "ls"))
         {
             list_items();
@@ -207,6 +211,7 @@ void game_loop(void)
             random_error_string();
         }
     }
+    getchar();
 }
 
 

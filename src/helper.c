@@ -162,10 +162,6 @@ void finish(void)
 
 void cp_event(int cp_counter) {
     
-    printf("-----------------\n");
-    printf("cp_counter: %d\n", cp_counter);
-    printf("-----------------\n");
-    
     if(cp_counter == 3) {
         printf("\nYou checked three places that came to your mind, where people could be in a city if something terrible happens. ");
         printf("Slowly you're beginning to wonder if you'll ever find someone in this city.\n");
