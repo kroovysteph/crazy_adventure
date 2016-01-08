@@ -45,6 +45,7 @@ int evaluate(void) {
             bear = init_bear(); //y=13, x=5
         }
         turn.bear_event   = true;
+        place_bear_behind_player();
     }
     
     if(x == 5 && y == 24 && turn.bear_event)
@@ -56,6 +57,7 @@ int evaluate(void) {
         if(strcmp("hide", input2) == 0) {
             turn.bear_event = false;
             printf("\nThe bear is gone!\n");
+            place_bear_behind_player();
             print_field();
         }
         else
@@ -70,6 +72,7 @@ int evaluate(void) {
             if(strcmp("hide", input2) == 0) {
                 turn.bear_event = false;
                 printf("\nThe bear is gone!\n");
+                place_bear_behind_player();
                 print_field();
             }
             else
@@ -84,18 +87,21 @@ int evaluate(void) {
         printf("\nRoarr!.. Your hear the bear chasing you!\n");
         //set back ambience.
         bear.position.y++;
+        place_bear_behind_player();
     }
     if(turn.current_turn - turn.bear_started == 2 && turn.bear_event) {
         //bear's turn 2
         printf("\nRoarr!.. You know that Grizzlys can weigh up to 680 kg!\n");
         //TODO: bear-movement to y=15 x=5
         bear.position.y++;
+        place_bear_behind_player();
     }
     if(turn.current_turn - turn.bear_started == 3 && turn.bear_event) {
         //bear's turn 3
         printf("\nRoarr!.. They can become up to 2.5 meters tall.\n");
         //TODO: bear-movement to y=16 x=5
         bear.position.y++;
+        place_bear_behind_player();
     }
     if(turn.current_turn - turn.bear_started == 4 && turn.bear_event) {
         //bear's turn 4
@@ -117,6 +123,7 @@ int evaluate(void) {
         printf("> ");
         turn.current_turn++;
         bear.position.y++;
+        place_bear_behind_player();
         
         scanf("%s", input2);
         if(strcmp("left", input2) == 0) {
@@ -128,46 +135,55 @@ int evaluate(void) {
         player.position.y = 21;
         player.position.x = 5;
         bear.position.y++;
+        place_bear_behind_player();
     }
     if(turn.current_turn - turn.bear_started == 5 && turn.bear_event) {
         //bear's turn 5
         printf("\nROOAAARRRRR!!!!!!1111 The bear is STILL chasing you!\n");
         bear.position.y++;
+        place_bear_behind_player();
     }
     if(turn.current_turn - turn.bear_started == 6 && turn.bear_event) {
         //bear's turn 6
         printf("\nROOAAARRRRR!!!!!!1111 Run away!!\n");
         bear.position.y++;
+        place_bear_behind_player();
     }
     if(turn.current_turn - turn.bear_started == 7 && turn.bear_event) {
         //bear's turn 8
         printf("\nROOAAARRRRR!!!!!!1111 The bear is STILL chasing you!\n");
         bear.position.y++;
+        place_bear_behind_player();
     }
     if(turn.current_turn - turn.bear_started == 8 && turn.bear_event) {
         //bear's turn 8
         printf("\nROOAAARRRRR!!!!!!1111 Hurry up!\n");
         bear.position.y++;
+        place_bear_behind_player();
     }
     if(turn.current_turn - turn.bear_started == 9 && turn.bear_event) {
         //bear's turn 9
         printf("\nROOAAARRRRR!!!!!!1111 Fast! Fast! Fast!\n");
         bear.position.y++;
+        place_bear_behind_player();
     }
     if(turn.current_turn - turn.bear_started == 10 && turn.bear_event) {
         //bear's turn 10
         printf("\nROOAAARRRRR!!!!!!1111\n");
         bear.position.y++;
+        place_bear_behind_player();
     }
     if(turn.current_turn - turn.bear_started == 11 && turn.bear_event) {
         //bear's turn 11
         printf("\nROOAAARRRRR!!!!!!1121 lol?\n");
         bear.position.y++;
+        place_bear_behind_player();
     }
     if(turn.current_turn - turn.bear_started == 12 && turn.bear_event) {
         //bear's turn 12
         printf("\nROOAAARRRRR!!!!!!1121 lol?\n");
         bear.position.y++;
+        place_bear_behind_player();
     }
     
     //evaluate positioning
@@ -225,6 +241,26 @@ int evaluate(void) {
         if(cp.trainstation) cp_counter++;
         
         cp_event(cp_counter);
+    }
+    
+    if(x == 7 && y == 33)
+    {
+        printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+        printf("\t\t\tAs  you're moving  towards the barrier  it opens.\n");
+        printf("\t\t\tYou're entering the stadium and begin to wonder\n");
+        printf("\t\t\thow it possibly could've worked. You know there's\n");
+        printf("\t\t\tno electricity or phone connection at all. As you\n");
+        printf("\t\t\tmove forward you're looking into peoples faces. \n");
+        printf("\t\t\tYou can't believe that  there are actually still\n");
+        printf("\t\t\tpeople alive. In the astonished crowd you can hear\n");
+        printf("\t\t\tsomeone screaming. You recognize that voice. Suddenly\n");
+        printf("\t\t\tyou can see your  child crying and  running  in your \n");
+        printf("\t\t\tdirection.  You've  managed  to  find  your  child\n");
+        printf("\n\n\n\n\n\n\t\t\t < press Enter to close the game >\n");
+        getchar();
+        getchar();
+        printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+        return 0;
     }
     
     return 1;

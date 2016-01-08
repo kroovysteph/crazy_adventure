@@ -85,6 +85,7 @@ void print_prolog(void);
 Level1 init_level1(void);
 bool p_has_item(char item[]);
 bool quest1_solved(void);
+void place_bear_behind_player(void);
 
 
 

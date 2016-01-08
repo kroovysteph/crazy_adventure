@@ -258,9 +258,9 @@ Item *create_item(char item[])
         
         return i;
     }
-    else if(0 == strcmp(item, "Cash_Register"))
+    else if(0 == strcmp(item, "Cash_Registers"))
     {
-        epic_string_cpy("cash", i->name);
+        epic_string_cpy("cashregisters", i->name);
         i->weight = 1000;
         epic_string_cpy("There's still a good amount of money in here.", i->flavour_text);
         
@@ -270,7 +270,7 @@ Item *create_item(char item[])
     {
         epic_string_cpy("cash", i->name);
         i->weight = 1;
-        epic_string_cpy("TIt's money. US$", i->flavour_text);
+        epic_string_cpy("It's money. US$", i->flavour_text);
         
         return i;
     }

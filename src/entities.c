@@ -10,8 +10,12 @@ Player init_player(char s[])
     p.inventory = l_create(sizeof(Item));
     
     //regular start
-    p.position.x = 1;
-    p.position.y = 1;
+    //p.position.x = 1;
+    //p.position.y = 1;
+    
+    //bear event
+    p.position.x = 5;
+    p.position.y = 15;
     
     //friend's house
     //p.position.x = 2;
@@ -36,4 +40,31 @@ Enemy init_bear(void) {
     bear.position.x = 5;
     
     return bear;
+}
+
+
+void place_bear_behind_player(void) {
+    
+    int y;
+    Item *item;
+    Item *bear = malloc(sizeof(Item));
+    
+    epic_string_cpy("bear", bear->name);
+    
+    //remove old bears
+    for (y=15; y<=25; y++) {
+        for(int i=0; i < l_length(field[y][5].items); i++) {
+            
+            item = l_get(field[y][5].items, i);
+            
+            if( strcmp(item->name, "bear") == 0 ) {
+                l_remove(field[y][5].items, i);
+            }
+        }
+    }
+    
+    //place new bear
+    if(turn.bear_event) {
+        l_append(field[player.position.y-1][5].items, bear);
+    }
 }
