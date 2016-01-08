@@ -200,10 +200,24 @@ int evaluate(Checkpoints cp, Turncounter turn) {
         printf("You feel like you can only shake off the bear if only ");
         printf("one of these vehicles works. Now you need to decide which ");
         printf("one you try by going \"left\" for the motorcycle, or \"right\" ");
-        printf("for the car.");
+        printf("for the car.\n");
         //TODO: 1.scanf left or right (maybe 1 error == extra bear movement!!)
-        //TODO: 2. player movement to
-        //TODO: 3. bear-movement to y=17 x=5
+        printf("> ");
+        scanf("%s", input2);
+        printf("\n\nIt seems like you've chosen the wrong one, although the key is plugged into the ignition log, the motor doesn't turn on.");
+        
+        turn.current_turn++;
+        bear.position.y++;
+            
+        scanf("%s", input2);
+        if(strcmp("left", input2) == 0) {
+            printf("Motorcycle runs, yeah! Maybe next time, bear!");
+        } else {
+            printf("The car starts, yeah! Cya later, bear!");
+        }
+        
+        player.position.y = 21;
+        player.position.x = 5;
         bear.position.y++;
     }
     if(turn.current_turn - turn.bear_started == 5 && turn.bear_event) {
