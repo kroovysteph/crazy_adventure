@@ -16,6 +16,15 @@ void init_game(void)
     lv1 = init_level1();
     //lv2 = init_level2();
     
+    turn.bear_knocked_down = false;
+    wolf_event1 = false;
+    wolf_event2 = false;
+    dog_event = false;
+    
+    wolf_event1_counter = 0;
+    wolf_event2_counter = 0;
+    dog_event_counter = 0;
+    
     //Init the playground containing the different rooms.
     init_field();
     print_title();
@@ -23,7 +32,8 @@ void init_game(void)
     //read difficulty
     difficulty = 0;
     printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-    while ( !(difficulty == 1 || difficulty == 2 || difficulty == 3) ) {
+    while ( !(difficulty == 1 || difficulty == 2 || difficulty == 3) )
+    {
         printf("\nPlease enter the difficulty: ");
         printf("\n(This effects, e.g. how far you can see when using \"map\".)");
         printf("\n(1) hard");
@@ -32,12 +42,14 @@ void init_game(void)
         printf("\n(1/2/3): ");
         status = scanf("%d", &difficulty);
         
-        if (status == 0) {
+        if (status == 0)
+        {
             //catch wrong input (= String)
             scanf("%s", dump);
         }
     }
-    switch (difficulty) {
+    switch (difficulty)
+    {
         case (1):
             printf("You chose \"hard\".\n\n");
             break;
@@ -57,7 +69,7 @@ void init_game(void)
     scanf("%s", s);
     player = init_player(s);
     printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-    printf("You remember your name. It's %s.\n", player.name);
+    printf("You remember your name. It´s %s.\n", player.name);
 }
 
 
@@ -129,7 +141,8 @@ void game_loop(void)
     
     while(evaluate())
     {
-        if(difficulty != 1) {
+        if(difficulty != 1)
+        {
             map(difficulty);
         }
         turn.current_turn++;
@@ -181,6 +194,10 @@ void game_loop(void)
         {
             examine();
         }
+        else if(strcmp(input1, "attack") == 0)
+        {
+            attack();
+        }
         else if(strcmp(input1, "apply") == 0 || 0 == strcmp(input1, "a"))
         {
             apply();
@@ -203,7 +220,8 @@ void game_loop(void)
         }
         else if(strcmp(input1, "quit") == 0 || 0 == strcmp(input1, "q"))
         {
-            if (quit()) {
+            if (quit())
+            {
                 break;
             }
         }

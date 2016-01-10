@@ -13,8 +13,8 @@ typedef struct Room
     List items;  //List contains pointers to Structs.
 } Room;
 
-typedef struct Checkpoints {
-    
+typedef struct Checkpoints
+{
     //true if player was in that place
     bool supermarket;
     bool townhall;

@@ -63,7 +63,7 @@ Item *create_item(char item[])
         epic_string_cpy("picture", i->name);
         i->weight = 1;
         i->damage = 0;
-        epic_string_cpy("A picture of yourself kissing another person. You don't know that person, but it is definetly your life partner. A child is hugging you", i->flavour_text);
+        epic_string_cpy("A picture of yourself kissing another person. You don´t know that person, but it is definetly your life partner. A child is hugging you", i->flavour_text);
         i->hp_regeneration = 0;
         i->additional_capacity = 0;
         i->health = 0;
@@ -122,7 +122,7 @@ Item *create_item(char item[])
     {
         epic_string_cpy("wardrobe", i->name);
         i->weight = 1000; //Cant carry.
-        epic_string_cpy("A big wardrobe. It just contains clothes that you don't need.", i->flavour_text);
+        epic_string_cpy("A big wardrobe. It just contains clothes that you don´t need.", i->flavour_text);
         i->damage = 0;
         i->hp_regeneration = 0;
         i->additional_capacity = 0;
@@ -159,7 +159,7 @@ Item *create_item(char item[])
         epic_string_cpy("dishes", i->name);
         i->weight = 2;
         i->damage = 1;
-        epic_string_cpy("Some normal dishes. You're thinking about what would happen if you'd throw them at someone.", i->flavour_text);
+        epic_string_cpy("Some normal dishes. You´re thinking about what would happen if you´d throw them at someone.", i->flavour_text);
         i->hp_regeneration = 0;
         i->additional_capacity = 0;
         i->health = 0;
@@ -183,7 +183,7 @@ Item *create_item(char item[])
         epic_string_cpy("knife", i->name);
         i->weight = 2;
         i->damage = 3;
-        epic_string_cpy("A pretty big and pretty sharp knife. It's made of one piece of steel.", i->flavour_text);
+        epic_string_cpy("A pretty big and pretty sharp knife. It´s made of one piece of steel.", i->flavour_text);
         i->hp_regeneration = 0;
         i->additional_capacity = 0;
         i->health = 0;
@@ -196,7 +196,7 @@ Item *create_item(char item[])
         i->weight = 1;
         i->damage = 0;
         i->hp_regeneration = 2;
-        epic_string_cpy("These could help if you're in pain.", i->flavour_text);
+        epic_string_cpy("These could help if you´re in pain.", i->flavour_text);
         i->additional_capacity = 0;
         i->health = 0;
         
@@ -218,7 +218,7 @@ Item *create_item(char item[])
     {
         epic_string_cpy("tv", i->name);
         i->weight = 1000; //Cant carry.
-        epic_string_cpy("It's a flatscreen.", i->flavour_text);
+        epic_string_cpy("It´s a flatscreen.", i->flavour_text);
         i->damage = 0;
         i->hp_regeneration = 0;
         i->additional_capacity = 0;
@@ -230,7 +230,7 @@ Item *create_item(char item[])
     {
         epic_string_cpy("carpet", i->name);
         i->weight = 1000; //Cant carry.
-        epic_string_cpy("That's a beatifully ormented, red carpet.", i->flavour_text);
+        epic_string_cpy("That´s a beatifully ormented, red carpet.", i->flavour_text);
         i->damage = 0;
         i->hp_regeneration = 0;
         i->additional_capacity = 0;
@@ -244,7 +244,7 @@ Item *create_item(char item[])
         epic_string_cpy("key", i->name);
         i->weight = 1;
         i->damage = 0;
-        epic_string_cpy("A bunch of keys that'll unlock the front door.", i->flavour_text);
+        epic_string_cpy("A bunch of keys that´ll unlock the front door.", i->flavour_text);
         i->hp_regeneration = 0;
         i->additional_capacity = 0;
         i->health = 0;
@@ -267,7 +267,7 @@ Item *create_item(char item[])
     {
         epic_string_cpy("tree", i->name);
         i->weight = 1000;
-        epic_string_cpy("It's an apple tree. The apples aren't ripe yet.", i->flavour_text);
+        epic_string_cpy("It´s an apple tree. The apples aren´t ripe yet.", i->flavour_text);
         i->damage = 0;
         i->hp_regeneration = 0;
         i->additional_capacity = 0;
@@ -323,12 +323,25 @@ Item *create_item(char item[])
         
         return i;
     }
+    else if(0 == strcmp(item, "Corpse"))
+    {
+        epic_string_cpy("corpse", i->name);
+        i->weight = 1000;
+        i->damage = 0;
+        i->health = 0;
+        epic_string_cpy("A corpse.", i->flavour_text);
+        i->hp_regeneration = 0;
+        i->additional_capacity = 0;
+        
+        return i;
+    }
     else if(0 == strcmp(item, "Wolf"))
     {
         epic_string_cpy("wolf", i->name);
+        i->weight = 1000;
         i->damage = 1;
         i->health = 4;
-        epic_string_cpy("A wolf that's attacking you!", i->flavour_text);
+        epic_string_cpy("A wolf that´s attacking you!", i->flavour_text);
         i->hp_regeneration = 0;
         i->additional_capacity = 0;
         
@@ -337,9 +350,10 @@ Item *create_item(char item[])
     else if(0 == strcmp(item, "Dog"))
     {
         epic_string_cpy("dog", i->name);
+        i->weight = 1000;
         i->damage = 2;
         i->health = 4;
-        epic_string_cpy("A dog that's attacking you!", i->flavour_text);
+        epic_string_cpy("A dog that´s attacking you!", i->flavour_text);
         i->hp_regeneration = 0;
         i->additional_capacity = 0;
         
@@ -373,7 +387,7 @@ Item *create_item(char item[])
     {
         epic_string_cpy("cashregisters", i->name);
         i->weight = 1000;
-        epic_string_cpy("It's a cash register.", i->flavour_text);
+        epic_string_cpy("It´s a cash register.", i->flavour_text);
         i->damage = 0;
         i->hp_regeneration = 0;
         i->additional_capacity = 0;
@@ -385,7 +399,7 @@ Item *create_item(char item[])
     {
         epic_string_cpy("cash", i->name);
         i->weight = 1;
-        epic_string_cpy("It's money. British £", i->flavour_text);
+        epic_string_cpy("It´s money. British £", i->flavour_text);
         i->damage = 0;
         i->hp_regeneration = 0;
         i->additional_capacity = 0;
@@ -409,7 +423,7 @@ Item *create_item(char item[])
     {
         epic_string_cpy("donation", i->name);
         i->weight = 1000;
-        epic_string_cpy("You notice a donation box. You can't imagine any reason to put money in there, becuase you seem to be the last person - at least - in this city, but you're just feeling like money isn't worth anything to you right now. The question is if you've got some \"cash\" in your pockets to \"put\" it in there.", i->flavour_text);
+        epic_string_cpy("You notice a donation box. You can´t imagine any reason to put money in there, becuase you seem to be the last person - at least - in this city, but you´re just feeling like money isn´t worth anything to you right now. The question is if you´ve got some \"cash\" in your pockets to \"put\" it in there.", i->flavour_text);
         i->damage = 0;
         i->hp_regeneration = 0;
         i->additional_capacity = 0;
@@ -481,7 +495,7 @@ Item *create_item(char item[])
     {
         epic_string_cpy("bible", i->name);
         i->weight = 2;
-        epic_string_cpy("You're opening the bible. It says: \"The creation of the world.\".", i->flavour_text);
+        epic_string_cpy("You´re opening the bible. It says: \"The creation of the world.\".", i->flavour_text);
         i->damage = 0;
         i->hp_regeneration = 0;
         i->additional_capacity = 0;
@@ -517,7 +531,7 @@ Item *create_item(char item[])
     {
         epic_string_cpy("shower", i->name);
         i->weight = 1000;
-        epic_string_cpy("That's a shower.", i->flavour_text);
+        epic_string_cpy("That´s a shower.", i->flavour_text);
         i->damage = 0;
         i->hp_regeneration = 0;
         i->additional_capacity = 0;
@@ -529,7 +543,7 @@ Item *create_item(char item[])
     {
         epic_string_cpy("washbin", i->name);
         i->weight = 1000;
-        epic_string_cpy("That's a washbin.", i->flavour_text);
+        epic_string_cpy("That´s a washbin.", i->flavour_text);
         i->damage = 0;
         i->hp_regeneration = 0;
         i->additional_capacity = 0;
@@ -565,7 +579,7 @@ Item *create_item(char item[])
     {
         epic_string_cpy("note", i->name);
         i->weight = 1;
-        epic_string_cpy("You regocnize the handwriting of your child. It's just scribble, but you identify it as \"Stratford Olympic Stadium\"", i->flavour_text);
+        epic_string_cpy("You regocnize the handwriting of your child. It´s just scribble, but you identify it as \"Stratford Olympic Stadium\"", i->flavour_text);
         i->damage = 0;
         i->hp_regeneration = 0;
         i->additional_capacity = 0;
@@ -577,7 +591,7 @@ Item *create_item(char item[])
     {
         epic_string_cpy("shelves", i->name);
         i->weight = 1000;
-        epic_string_cpy("You're looking into a shelve.", i->flavour_text);
+        epic_string_cpy("You´re looking into a shelve.", i->flavour_text);
         i->damage = 0;
         i->hp_regeneration = 0;
         i->additional_capacity = 0;
@@ -589,7 +603,7 @@ Item *create_item(char item[])
     {
         epic_string_cpy("pictures", i->name);
         i->weight = 1;
-        epic_string_cpy("Your child's friend seems to like super heroes like every other child. There's a picture of Batman.", i->flavour_text);
+        epic_string_cpy("Your child´s friend seems to like super heroes like every other child. There´s a picture of Batman.", i->flavour_text);
         i->damage = 0;
         i->hp_regeneration = 0;
         i->additional_capacity = 0;
@@ -601,7 +615,7 @@ Item *create_item(char item[])
     {
         epic_string_cpy("bed", i->name);
         i->weight = 1000;
-        epic_string_cpy("The child like's racing cars, that's obvious. You can see his bed is painted like a car.", i->flavour_text);
+        epic_string_cpy("The child like´s racing cars, that´s obvious. You can see his bed is painted like a car.", i->flavour_text);
         i->damage = 0;
         i->hp_regeneration = 0;
         i->additional_capacity = 0;
@@ -612,7 +626,7 @@ Item *create_item(char item[])
     else if(0 == strcmp(item, "Water_Bed"))
     {
         epic_string_cpy("bed", i->name);
-        epic_string_cpy("You're looking at a great water bed for two persons.", i->flavour_text);
+        epic_string_cpy("You´re looking at a great water bed for two persons.", i->flavour_text);
         i->weight = 1000;
         i->damage = 0;
         i->hp_regeneration = 0;
@@ -627,27 +641,30 @@ Item *create_item(char item[])
 }
 
 
-void print_itemlist(List list) {
+void print_itemlist(List list)
+{
     
     Item *item;
     char current[25];
     
     printf("{ ");
     
-    for(int i=0; i < l_length(list); i++) {
-        
+    for(int i=0; i < l_length(list); i++)
+    {
         item = l_get(list, i);
         
         epic_string_cpy(item->name, current);
         
         current[0] = toupper(current[0]);
         
-        if(i < l_length(list)-1) {
+        if(i < l_length(list)-1)
+        {
             printf("%s, ", current);
-        } else {
+        }
+        else
+        {
             printf("%s", current);
         }
-        
     }
     printf(" }\n");
 }

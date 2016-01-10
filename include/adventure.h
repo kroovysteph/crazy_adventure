@@ -19,21 +19,32 @@
  * pointer of Room structs at a certain place.
  */
 Room **field;
+/**The player with all his stats.
+ */
 Player player;
 Enemy bear;
 int difficulty;
 Checkpoints cp;
 bool donated;
+bool wolf_event1;
+bool wolf_event2;
+bool dog_event;
+int wolf_event1_counter;
+int wolf_event2_counter;
+int dog_event_counter;
 
-typedef struct Turncounter {
+typedef struct Turncounter
+{
     int current_turn;
     int bear_started;
     bool bear_event;
+    bool bear_knocked_down;
 } Turncounter;
 
 Turncounter turn;
 
-typedef struct Level1 {
+typedef struct Level1
+{
     bool picture;
     bool grave;
 } Level1;
@@ -77,16 +88,19 @@ void look(void);
 int quit(void);
 void print_manual(void);
 void print_stats(void);
+void attack (void);
 
 //helper.c
 void epic_string_cpy(char from[], char to[]);
 bool p_has_item(char item[]);
+bool r_has_item_by_name(int y, int x, char item[]);
 void random_error_string(void);
 void random_string(char input[]);
 void finish(void);
 void cp_event(int cp_counter);
 Turncounter create_Turncounter(void);
 void cash_donationbox_same(void);
+bool playerIsAtActiveEventPos(char event[]);
 
 //items.c
 Item *create_item(char item[]);

@@ -1,6 +1,7 @@
 #include "adventure.h"
 
-void print_title(void) {
+void print_title(void)
+{
     
     printf("\n\n\n");
     printf("_________                              \n");
@@ -22,8 +23,10 @@ void print_title(void) {
     getchar();
 }
 
-void print_tombstone(void) {
+void print_tombstone(void)
+{
     
+printf("\n");
 printf("        _.---,._,' \n");
 printf("       /' _.--.< \n");
 printf("         /'     `' \n");
@@ -36,8 +39,11 @@ printf("        |                   .-'~~~`-.\n");
 printf("        |                 .'         `.\n");
 printf("        |                 |  R  I  P  |\n");
 printf("        |                 |           |\n");
-printf("        |                 |           |\n");
+printf("    jgs |                 |           |\n");
 printf("         \\              \\\\|           |//\n");
 printf("   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n");
 printf("\n\n");
+getchar();
+printf("\t < press Enter to close the game >\n");
+
 }

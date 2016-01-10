@@ -1,12 +1,13 @@
 #include "adventure.h"
 
-void print_prolog(void) {
+void print_prolog(void)
+{
     
     printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
     printf("\t\t\tYou   wake  up.  You  find  yourself  in  the\n");
     printf("\t\t\tbed  of  a normal room.  You  cannot remember\n");
     printf("\t\t\tanything  about your life, about your family,\n");
-    printf("\t\t\tyou don't know if you even had a family once.\n");
+    printf("\t\t\tyou don´t know if you even had a family once.\n");
     printf("\t\t\tYou are turning  your head to look out of the\n");
     printf("\t\t\twindow.  You can see a  city that seems to be\n");
     printf("\t\t\tabandoned.  People left  their cars which are\n");

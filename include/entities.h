@@ -25,7 +25,8 @@ typedef struct Player
     int damage;
 } Player;
 
-typedef struct Enemy {
+typedef struct Enemy
+{
     char name[25];
     Position position;
 } Enemy;

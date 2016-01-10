@@ -8,7 +8,6 @@ typedef struct Item
     char flavour_text[1000];
     int damage;
     int weight;
-    //TODO: Message if you´re looking at an item!
     int hp_regeneration;
     int additional_capacity;
     int health;

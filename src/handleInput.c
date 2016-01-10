@@ -34,7 +34,8 @@ void go_down(char input[])
 }
 
 
-void go_up(char input[]) {
+void go_up(char input[])
+{
     
     int x = player.position.x;
     int y = player.position.y;
@@ -52,7 +53,8 @@ void go_up(char input[]) {
 
 
 
-void go_right(char input[]) {
+void go_right(char input[])
+{
     
     int x = player.position.x;
     int y = player.position.y;
@@ -69,7 +71,8 @@ void go_right(char input[]) {
 }
 
 
-void get_item(void) {
+void get_item(void)
+{
     
     bool found = false;
     char input2[25] = "";
@@ -97,16 +100,19 @@ void get_item(void) {
         item = l_get(field[y][x].items, i);
         
         
-        if(strcmp(item->name, input2) == 0) {
+        if(strcmp(item->name, input2) == 0)
+        {
             
             found = true;
             
-            if(max_load > cur_load + item->weight) {
+            if(max_load > cur_load + item->weight)
+            {
                 
                 player.weight_carrying += item->weight;
                 l_append( player.inventory, item);
                 
-                if(strcmp(item->name, "backpack") == 0) {
+                if(strcmp(item->name, "backpack") == 0)
+                {
                     player.capacity += item->additional_capacity;
                 }
                 
@@ -115,10 +121,11 @@ void get_item(void) {
                 l_remove(field[y][x].items, i);
                 break;
                 
-            } else {
+            }
+            else
+            {
                 printf("\nA \"%s\" is too heavy for carrying.\n", item->name);
             }
-            
         }
     }
     
@@ -129,7 +136,8 @@ void get_item(void) {
 }
 
 
-void put_item(void) {
+void put_item(void)
+{
     
     bool found = false;
     char input2[25] = "";
@@ -150,17 +158,18 @@ void put_item(void) {
     
     for(int i = 0; i < l_length(player.inventory); i++)
     {
-        //geht durch die Liste
+        //iterate through the list
         item = l_get(player.inventory, i);
         
-        if(strcmp(item->name, input2) == 0) {
-            
+        if(strcmp(item->name, input2) == 0)
+        {
             found = true;
-            player.weight_carrying += item->weight;
+            player.weight_carrying -= item->weight;
             
             l_append(field[y][x].items, item);
             
-            if(strcmp(item->name, "backpack") == 0) {
+            if(strcmp(item->name, "backpack") == 0)
+            {
                 player.capacity -= item->additional_capacity;
             }
             
@@ -176,7 +185,8 @@ void put_item(void) {
     }
 }
 
-void apply(void) {
+void apply(void)
+{
     
     bool found = false;
     char input2[25] = "";
@@ -197,31 +207,35 @@ void apply(void) {
         //geht durch die Liste
         item = l_get(player.inventory, i);
         
-        if(strcmp(item->name, input2) == 0) {
-            
+        if(strcmp(item->name, input2) == 0)
+        {
             found = true;
 //------------------------------------------------------------------kit---------
-            if(strcmp("kit", input2) == 0) {
+            if(strcmp("kit", input2) == 0)
+            {
                 player.weight_carrying -= item->weight;
                 player.health += item->hp_regeneration;
                 printf("\nYou applied a medi-kit to yourself.\n");
                 l_remove(player.inventory, i);
             }
 //------------------------------------------------------------------pills-------
-            else if(strcmp("pills", input2) == 0) {
+            else if(strcmp("pills", input2) == 0)
+            {
                 player.weight_carrying -= item->weight;
                 player.health += item->hp_regeneration;
                 printf("\nYou take some pills. You feel a bit better.\n");
                 l_remove(player.inventory, i);
             }
 //-------------------------------------------------------------------map--------
-            else if(strcmp("map", input2) == 0) {
+            else if(strcmp("map", input2) == 0)
+            {
                 printf("\nYou getter a better understanding of the environment.\n");
                 difficulty = 1000;
             }
 //------------------------------------------------------------------------------
-            else {
-                printf("\nThat is a silly thin to apply.\n");
+            else
+            {
+                printf("\nThat is a silly thing to apply.\n");
             }
             break;
         }
@@ -233,7 +247,8 @@ void apply(void) {
     }
 }
 
-void list_items(void) {
+void list_items(void)
+{
     
     int x = player.position.x;
     int y = player.position.y;
@@ -247,8 +262,8 @@ void list_items(void) {
 }
 
 
-void examine(void) {
-    
+void examine(void)
+{
     char input2[25] = "";
     
     int x = player.position.x;
@@ -258,29 +273,34 @@ void examine(void) {
     Item *item;
     
     int c = 0;
-    while(input2[c] != '\0') {
+    while(input2[c] != '\0')
+    {
         input2[c] = tolower(input2[c]);
         c++;
     }
     
-    for(int i = 0; i < l_length(field[y][x].items); i++) {
+    for(int i = 0; i < l_length(field[y][x].items); i++)
+    {
         
-        //geht durch die Liste
+        //iterate through the list
         item = l_get(field[y][x].items, i);
         
-        if(strcmp(item->name, input2) == 0) {
-            
+        if(strcmp(item->name, input2) == 0)
+        {
             printf("\n%s\n", item->flavour_text);
 //---------------------------------------examine-event-handling-----------------
-            if(strcmp(item->name, "picture") == 0) {
+            if(strcmp(item->name, "picture") == 0)
+            {
                 //examined item IS in the current room
                 lv1.picture = true;
             }
-            if(strcmp(item->name, "grave") == 0) {
+            if(strcmp(item->name, "grave") == 0)
+            {
                 //examined item IS in the current room
                 lv1.grave = true;
             }
-            if(strcmp(item->name, "note") == 0) {
+            if(strcmp(item->name, "note") == 0)
+            {
                 //examined item IS in the current room
                 player.position.y = 32;
                 player.position.x = 7;
@@ -290,25 +310,30 @@ void examine(void) {
         }
     }
     
-    for(int i = 0; i < l_length(player.inventory); i++) {
+    for(int i = 0; i < l_length(player.inventory); i++)
+    {
         
-        //geht durch die Liste
+        //iterate through the list
         item = l_get(player.inventory, i);
         
-        if(strcmp(item->name, input2) == 0) {
+        if(strcmp(item->name, input2) == 0)
+        {
             
             printf("\n%s\n", item->flavour_text);
 //---------------------------------------examine-event-handling-----------------
             
-            if(strcmp(item->name, "picture") == 0) {
+            if(strcmp(item->name, "picture") == 0)
+            {
                 //examined item IS in the players inventory
                 lv1.picture = true;
             }
-            if(strcmp(item->name, "grave") == 0) {
+            if(strcmp(item->name, "grave") == 0)
+            {
                 //examined item IS in the players inventory
                 lv1.grave = true;
             }
-            if(strcmp(item->name, "note") == 0) {
+            if(strcmp(item->name, "note") == 0)
+            {
                 //examined item IS in the current room
                 player.position.y = 32;
                 player.position.x = 7;
@@ -321,7 +346,8 @@ void examine(void) {
     printf("\nThere is nothing like \"%s\"...\n", input2);
 }
 
-void look(void) {
+void look(void)
+{
     
     int x = player.position.x;
     int y = player.position.y;
@@ -330,12 +356,14 @@ void look(void) {
     
     print_field();
     
-    if(!DEBUG_MODE) {
+    if(!DEBUG_MODE)
+    {
         print_itemlist(field[y][x].items);
     }
 }
 
-int quit(void) {
+int quit(void)
+{
     
     char input2[25];
     
@@ -343,33 +371,109 @@ int quit(void) {
     scanf("%s", input2);
     
     int c = 0;
-    while(input2[c] != '\0') {
+    while(input2[c] != '\0')
+    {
         input2[c] = tolower(input2[c]);
         c++;
     }
     
-    if(strcmp(input2, "yes") == 0 || 0 == strcmp(input2, "y")) {
-        
+    if(strcmp(input2, "yes") == 0 || 0 == strcmp(input2, "y"))
+    {
         printf("You have successfully closed the game.\n");
         return 1;
-        
-    } else if(strcmp(input2, "no") == 0 || 0 == strcmp(input2, "n")) {
-        
+    }
+    else if(strcmp(input2, "no") == 0 || 0 == strcmp(input2, "n"))
+    {
         printf("\n...back to the game!\n");
         print_field();
         return 0;
-        
-    } else {
-        
+    }
+    else
+    {
         printf("\nWhat do you mean by \"%s\"?", input2);
         return quit();
     }
+}
+
+void attack (void)
+{
+    char input3[25] = "";
     
+    scanf("%s", input3);
+    Item *item;
+    
+    int x = player.position.x;
+    int y = player.position.y;
+    
+    int c = 0;
+    while(input3[c] != '\0')
+    {
+        input3[c] = tolower(input3[c]);
+        c++;
+    }
+    
+    //No items in the room.
+    if(l_length(field[y][x].items) == 0)
+    {
+        printf("\nHere´s nothing to be attacked!");
+    }
+    
+    for(int i = 0; i < l_length(field[y][x].items); i++)
+    {
+        
+        //iterate through the list
+        item = l_get(field[y][x].items, i);
+        
+        //The item the player wanted to attack is there.
+        //TODO: Only works, if one item is in the room!
+        if(strcmp(input3, item->name) == 0)
+        {
+            //The player is attacking a wolf or a dog.
+            if(strcmp(input3, "wolf") == 0 || strcmp(input3, "dog") == 0)
+            {
+                printf("\nYou´re attacking the %s. You´re dealing %d damage.", input3, player.damage);
+                item->health = item->health - player.damage;
+                for(int i = 0; i < l_length(field[y][x].items); i++)
+                {
+                    Item * item = l_get(field[y][x].items, i);
+                    if(item->health <= 0)
+                    {
+                        printf("\nThe %s is dead.", item->name);
+                        l_remove(field[y][x].items, i);
+                        l_append(field[y][x].items, create_item("Corpse"));
+                        wolf_event1 = false;
+                        wolf_event2 = false;
+                        dog_event = false;
+                    }
+                    else if(item->health > 0)
+                    {
+                        printf("\nThe %s attacks you and deals %d damage.", item->name, item->damage);
+                        player.health = player.health - item->damage;
+                    }
+                    break;
+                }
+                break;
+            }
+            //The player is not trying to attack a wolf or a dog
+            if(strcmp(input3, "wolf") != 0 || strcmp(input3, "dog") != 0)
+            {
+                printf("\nYou´re trying to attack %s...", input3);
+            }
+            break;
+        }
+        //The item the player wanted to attack is not there.
+        //TODO: Only wirks, if one item is in the room!
+        if(strcmp(input3, item->name) != 0)
+        {
+            printf("\nHere´s nothing like %s!", input3);
+        }
+        break;
+    }
 }
 
 
-void print_manual(void) {
-    
+void print_manual(void)
+{
     printf("\n");
     printf("left,  l       :  go west\n");
     printf("right, r       :  go east\n");
@@ -381,17 +485,16 @@ void print_manual(void) {
     printf("examine <item> :  get more details on an item/object\n");
     printf("quit           :  quits the game\n");
     printf("ls             :  lists items of inventory and room\n");
-    printf("stats          :  lists player's stats\n");
+    printf("stats          :  lists player´s stats\n");
     printf("apply, a <item>:  use an item\n");
     printf("hide           :  hide before enemies, like bears and so on\n");
-    printf("attack         :  sorry, not implemented yet\n");
+    printf("attack <enemy> :  attack an enemy\n");
     printf("man, help      :  shows this help menu\n");
-    
 }
 
 
-void print_stats(void) {
-    
+void print_stats(void)
+{
     int health    = player.health;
     int max_load  = player.capacity;
     int cur_load  = player.weight_carrying;

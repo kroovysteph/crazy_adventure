@@ -69,81 +69,90 @@ void print_field(void)
     
     
     //------------------------------------------------------------
-    
-    while(field[y][x].ambience[c] != '\0') {
+    if(wolf_event1 || wolf_event2 || dog_event) {
         
-        if(field[y][x].ambience[c] != '_') {
-            
-            printf("%c", field[y][x].ambience[c]);
-        } else {
-            printf(" ");
-        }
-        c++;
-    }
-    printf("\n");
-    
-    
-    if(DEBUG_MODE)  {
+        printf("You do not run away like a little girl...\n");
         
-        //print list of items
-        print_itemlist(field[y][x].items);
-        
-        //print graphical field
-        for(int y = 0; y < FIELD_HEIGHT; y++)
+    } else {
+        while(field[y][x].ambience[c] != '\0')
         {
-            if(y > 0) {
-                printf("\n");
-            }
-            for(int x = 0; x < FIELD_WIDTH; x++)
+            
+            if(field[y][x].ambience[c] != '_')
             {
-                printf("[");
-                
-                if( field[y][x].wall )
-                {
-                    printf("WWW");
-                }
-                else
-                {
-                    if(player.position.x == x && player.position.y == y)
-                    //Player is in this room.
-                    {
-                        printf("P");
-                    }
-                    else
-                    {
-                        printf(" ");
-                    }
-                    
-                    
-                    if(1 == l_length(field[y][x].items) )
-                    {
-                        //Should be void*, beucase we dont know which struct we´ll look at.
-                        //Cant dereference void*!
-                        Item * i1 = l_get(field[y][x].items, 0);
-                        printf( "%c ", i1->name[0] );
-                    }
-                    else if(2 <= l_length(field[y][x].items))
-                    {
-                        Item * i1 = l_get(field[y][x].items, 0);
-                        Item * i2 = l_get(field[y][x].items, 1);
-                        
-                        printf("%c%c", i1->name[0], i2->name[0]);
-                    }
-                    else
-                    {
-                        printf("  ");
-                    }
-                }
-                printf("] ");
+                printf("%c", field[y][x].ambience[c]);
             }
+            else
+            {
+                printf(" ");
+            }
+            c++;
         }
-        printf("\n\n");
+        printf("\n");
+        
+        
+        if(DEBUG_MODE)
+        {
+            //print list of items
+            print_itemlist(field[y][x].items);
+            
+            //print graphical field
+            for(int y = 0; y < FIELD_HEIGHT; y++)
+            {
+                if(y > 0)
+                {
+                    printf("\n");
+                }
+                for(int x = 0; x < FIELD_WIDTH; x++)
+                {
+                    printf("[");
+                    
+                    if( field[y][x].wall )
+                    {
+                        printf("WWW");
+                    }
+                    else
+                    {
+                        if(player.position.x == x && player.position.y == y)
+                        //Player is in this room.
+                        {
+                            printf("P");
+                        }
+                        else
+                        {
+                            printf(" ");
+                        }
+                        
+                        
+                        if(1 == l_length(field[y][x].items) )
+                        {
+                            //Should be void*, beucase we dont know which struct we´ll look at.
+                            //Cant dereference void*!
+                            Item * i1 = l_get(field[y][x].items, 0);
+                            printf( "%c ", i1->name[0] );
+                        }
+                        else if(2 <= l_length(field[y][x].items))
+                        {
+                            Item * i1 = l_get(field[y][x].items, 0);
+                            Item * i2 = l_get(field[y][x].items, 1);
+                            
+                            printf("%c%c", i1->name[0], i2->name[0]);
+                        }
+                        else
+                        {
+                            printf("  ");
+                        }
+                    }
+                    printf("] ");
+                }
+            }
+            printf("\n\n");
+        }
     }
 }
 
 
-Checkpoints create_checkpoints(void) {
-    
+Checkpoints create_checkpoints(void)
+{
     Checkpoints cp;
     
     cp.supermarket = false;
@@ -157,8 +166,8 @@ Checkpoints create_checkpoints(void) {
 }
 
 
-void map(int sight_range) {
-    
+void map(int sight_range)
+{
     int x_sight_range = sight_range;
     int y_sight_range = sight_range;
     
@@ -167,11 +176,14 @@ void map(int sight_range) {
     {
         for(int x = 0; x < FIELD_WIDTH; x++)
         {
-            if(near_player(y, x, y_sight_range, x_sight_range)) {
-                
-                if(x == 0 || x == player.position.x - x_sight_range) {
+            if(near_player(y, x, y_sight_range, x_sight_range))
+            {
+                if(x == 0 || x == player.position.x - x_sight_range)
+                {
                     printf("\n");
-                } else if (at_baby(y, x) && x == player.position.x-1) {
+                }
+                else if (at_baby(y, x) && x == player.position.x-1)
+                {
                     printf("\n");
                 }
                 
@@ -226,32 +238,43 @@ void map(int sight_range) {
  * returns a boolean that tells if field[@y][@x] is in range of the player
  * @y_range and @x_range determine the (kinda) radius of the range
  */
-bool near_player(int y, int x, int y_range, int x_range) {
+bool near_player(int y, int x, int y_range, int x_range)
+{
     
     if(player.position.x-x_range <= x && x <= player.position.x+x_range
-    && player.position.y-y_range <= y && y <= player.position.y+y_range) {
-        
-        if (at_home(player.position.y, player.position.x) && at_home(y, x)) {
+    && player.position.y-y_range <= y && y <= player.position.y+y_range)
+    {
+        if (at_home(player.position.y, player.position.x) && at_home(y, x))
+        {
             return true;
-        } else if (at_city(player.position.y, player.position.x) && at_city(y, x)) {
+        }
+        else if (at_city(player.position.y, player.position.x) && at_city(y, x))
+        {
             return true;
-        } else if (at_friend(player.position.y, player.position.x) && at_friend(y, x)) {
+        }
+        else if (at_friend(player.position.y, player.position.x) && at_friend(y, x))
+        {
             return true;
-        } else if (at_baby(player.position.y, player.position.x) && at_baby(y, x)) {
+        }
+        else if (at_baby(player.position.y, player.position.x) && at_baby(y, x))
+        {
             return true;
-        } else {
+        }
+        else
+        {
             return false;
         }
         
-    } else {
-        
+    }
+    else
+    {
         return false;
     }
 }
 
 
-bool at_home(int given_y, int given_x) {
-    
+bool at_home(int given_y, int given_x)
+{
     Position top_left_corner;
     top_left_corner.y = 0;
     top_left_corner.x = 0;
@@ -263,15 +286,18 @@ bool at_home(int given_y, int given_x) {
     if( given_x <= bot_right_corner.x &&
         given_y <= bot_right_corner.y &&
         given_x >=  top_left_corner.x &&
-        given_y >=  top_left_corner.y    ) {
-            
-            return true;
-        } else {
-            return false;
-        }
+        given_y >=  top_left_corner.y    )
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
-bool at_city(int given_y, int given_x) {
+bool at_city(int given_y, int given_x)
+{
     
     Position top_left_corner;
     top_left_corner.y = 11;
@@ -284,15 +310,18 @@ bool at_city(int given_y, int given_x) {
     if( given_x <= bot_right_corner.x &&
         given_y <= bot_right_corner.y &&
         given_x >=  top_left_corner.x &&
-        given_y >=  top_left_corner.y    ) {
-            
-            return true;
-        } else {
-            return false;
-        }
+        given_y >=  top_left_corner.y    )
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
-bool at_friend(int given_y, int given_x) {
+bool at_friend(int given_y, int given_x)
+{
     
     Position top_left_corner;
     top_left_corner.y = 31;
@@ -305,15 +334,18 @@ bool at_friend(int given_y, int given_x) {
     if( given_x <= bot_right_corner.x &&
         given_y <= bot_right_corner.y &&
         given_x >=  top_left_corner.x &&
-        given_y >=  top_left_corner.y    ) {
-            
-            return true;
-        } else {
-            return false;
-        }
+        given_y >=  top_left_corner.y    )
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
-bool at_baby(int given_y, int given_x) {
+bool at_baby(int given_y, int given_x)
+{
     
     Position top_left_corner;
     top_left_corner.y = 31;
@@ -326,10 +358,12 @@ bool at_baby(int given_y, int given_x) {
     if( given_x <= bot_right_corner.x &&
         given_y <= bot_right_corner.y &&
         given_x >=  top_left_corner.x &&
-        given_y >=  top_left_corner.y    ) {
-            
-            return true;
-        } else {
-            return false;
-        }
+        given_y >=  top_left_corner.y    )
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
