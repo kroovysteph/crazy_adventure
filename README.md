@@ -25,7 +25,7 @@ __direct download:__
 	https://github.com/kroovysteph/crazy_adventure/archive/master.zip
 
       
-## compile via:
+## compile & run via:
 
 __LINUX__
 
