@@ -1,4 +1,3 @@
----
 
 ## compile via:
 
@@ -10,13 +9,13 @@
 
     * runscript_windows.bat
 
----
 
 ## Download via
--
+
+__clone from github__
+
 * git clone https://github.com/kroovysteph/crazy_adventure.git
--
-### direct download:
--
+
+__direct download:__
+
 * https://github.com/kroovysteph/crazy_adventure/archive/master.zip
--
