@@ -3,7 +3,7 @@
 * __LINUX__
 
 1. cd crazy_adventure
-2. ./start_linux.sh
+2. sh start_linux.sh
 
 * __WINDOWS__
 
