@@ -4,6 +4,10 @@
 
 1. cd crazy_adventure
 2. sh start_linux.sh
+3. cd crazy_adventure
+4. start_windows.bat
+5. cd crazy_adventure
+6. sh start_linux.sh
 
 * __WINDOWS__
 
