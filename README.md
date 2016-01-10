@@ -10,12 +10,10 @@
     * runscript_windows.bat
 
 
-## Download via
+## download via:
 
 __clone from github__
-
-* git clone https://github.com/kroovysteph/crazy_adventure.git
+    git clone https://github.com/kroovysteph/crazy_adventure.git
 
 __direct download:__
-
-* https://github.com/kroovysteph/crazy_adventure/archive/master.zip
+    https://github.com/kroovysteph/crazy_adventure/archive/master.zip
