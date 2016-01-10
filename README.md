@@ -1,11 +1,22 @@
+---
+
 ## compile via:
 
 * __LINUX__
 
-1. cd crazy_adventure
-2. ./start_linux.sh
+    * ./runscript_linux.sh
 
 * __WINDOWS__
 
-1. cd crazy_adventure
-2. start_windows.bat
+    * runscript_windows.bat
+
+---
+
+## Download via
+-
+* git clone https://github.com/kroovysteph/crazy_adventure.git
+-
+### direct download:
+-
+* https://github.com/kroovysteph/crazy_adventure/archive/master.zip
+-
