@@ -13,7 +13,7 @@ SOURCES = $(SRCDIR)*.c
 
 # pattern rule for compiling .c-file to executable
 adventure:
-	$(CC) $(SOURCES) $(CFLAGS) $(DEBUG) $< -L../prog1lib/lib -lprog1 -lm -iquote../prog1lib/lib -o $@
+	$(CC) $(SOURCES) $(CFLAGS) $(DEBUG) $< -L./prog1lib/lib -lprog1 -lm -iquote./prog1lib/lib -o $@
 
 # do not treat "clean" as a file name
 .PHONY: clean 
