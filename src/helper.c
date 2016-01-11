@@ -111,26 +111,29 @@ void random_string(char input[])
     {
         random_number = rand() % 5 + 1;
     }
-    //Print a random String, added by the direction.
-    switch(random_number)
+    if(!wolf_event1 && !wolf_event2 && !dog_event)
     {
-        case 1:
-            printf("\nYou´re going %s.\n", direction);
-            break;
-        case 2:
-            printf("\nYou´re walking %s.\n", direction);
-            break;
-        case 3:
-            printf("\nYou reach the %s.\n", direction);
-            break;
-        case 4:
-            printf("\nYou reach your destination in the %s.\n", direction);
-            break;
-        case 5:
-            printf("\nYou reach the place that´s to your %sern side!\n", direction);
-            break;
-        default:
-            break;
+        //Print a random String, added by the direction.
+        switch(random_number)
+        {
+            case 1:
+                printf("\nYou´re going %s.\n", direction);
+                break;
+            case 2:
+                printf("\nYou´re walking %s.\n", direction);
+                break;
+            case 3:
+                printf("\nYou reach the %s.\n", direction);
+                break;
+            case 4:
+                printf("\nYou reach your destination in the %s.\n", direction);
+                break;
+            case 5:
+                printf("\nYou reach the place that´s to your %sern side!\n", direction);
+                break;
+            default:
+                break;
+        }
     }
 }
 

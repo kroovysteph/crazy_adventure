@@ -417,57 +417,57 @@ void attack (void)
     {
         printf("\nHere´s nothing to be attacked!");
     }
-    
-    for(int i = 0; i < l_length(field[y][x].items); i++)
+    //There are items in the room.
+    else
     {
-        
-        //iterate through the list
-        item = l_get(field[y][x].items, i);
-        
-        //The item the player wanted to attack is there.
-        //TODO: Only works, if one item is in the room!
-        if(strcmp(input3, item->name) == 0)
+        //There are definetly items in the room. Need to go through the itemlist.
+        for(int i = 0; i < l_length(field[y][x].items); i++)
         {
-            //The player is attacking a wolf or a dog.
-            if(strcmp(input3, "wolf") == 0 || strcmp(input3, "dog") == 0)
+            
+            //Iterate through the list
+            item = l_get(field[y][x].items, i);
+            
+            //The item the player wanted to attack is there.
+            if(strcmp(input3, item->name) == 0)
             {
-                printf("\nYou´re attacking the %s. You´re dealing %d damage.", input3, player.damage);
-                item->health = item->health - player.damage;
-                for(int i = 0; i < l_length(field[y][x].items); i++)
+                //The player is attacking a wolf or a dog.
+                if(strcmp(input3, "wolf") == 0 || strcmp(input3, "dog") == 0)
                 {
-                    Item * item = l_get(field[y][x].items, i);
-                    if(item->health <= 0)
+                    printf("\nYou´re attacking the %s. You´re dealing %d damage.", input3, player.damage);
+                    item->health = item->health - player.damage;
+                    for(int i = 0; i < l_length(field[y][x].items); i++)
                     {
-                        printf("\nThe %s is dead.", item->name);
-                        l_remove(field[y][x].items, i);
-                        l_append(field[y][x].items, create_item("Corpse"));
-                        wolf_event1 = false;
-                        wolf_event2 = false;
-                        dog_event = false;
+                        Item * item = l_get(field[y][x].items, i);
+                        if(item->health <= 0)
+                        {
+                            printf("\nThe %s is dead.", item->name);
+                            l_remove(field[y][x].items, i);
+                            l_append(field[y][x].items, create_item("Corpse"));
+                            wolf_event1 = false;
+                            wolf_event2 = false;
+                            dog_event = false;
+                            break;
+                        }
+                        else if(item->health > 0)
+                        {
+                            printf("\nThe %s attacks you and deals %d damage.", item->name, item->damage);
+                            player.health = player.health - item->damage;
+                            break;
+                        }
                     }
-                    else if(item->health > 0)
-                    {
-                        printf("\nThe %s attacks you and deals %d damage.", item->name, item->damage);
-                        player.health = player.health - item->damage;
-                    }
-                    break;
                 }
-                break;
+                //The player is not trying to attack a wolf or a dog.
+                else if(strcmp(input3, "wolf") != 0 || strcmp(input3, "dog") != 0)
+                {
+                        printf("\nYou´re trying to attack %s...", input3);
+                }
             }
-            //The player is not trying to attack a wolf or a dog
-            if(strcmp(input3, "wolf") != 0 || strcmp(input3, "dog") != 0)
+            //The item the player wanted to attack is not there.
+            else if(strcmp(input3, item->name) != 0)
             {
-                printf("\nYou´re trying to attack %s...", input3);
+                    printf("\nHere´s nothing like %s!", input3);
             }
-            break;
         }
-        //The item the player wanted to attack is not there.
-        //TODO: Only wirks, if one item is in the room!
-        if(strcmp(input3, item->name) != 0)
-        {
-            printf("\nHere´s nothing like %s!", input3);
-        }
-        break;
     }
 }
 
