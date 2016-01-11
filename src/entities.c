@@ -10,10 +10,10 @@ Player init_player(char s[])
     p.inventory = l_create(sizeof(Item));
     
     //regular start
-    p.position.x = 3; p.position.y = 13;
+    p.position.x = 1; p.position.y = 1;
     
     //bear event
-    //p.position.x = 5; p.position.y = 15;
+    //p.position.x = 3; p.position.y = 13;
     
     //friend´s house
     //p.position.x = 2; p.position.y = 32;

@@ -71,19 +71,6 @@ int evaluate(void)
         place_bear_behind_player();
     }
 
-    if(turn.bear_knocked_down)
-    {
-        epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[16][5].ambience);
-        epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[17][5].ambience);
-        epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[18][5].ambience);
-        epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[19][5].ambience);
-        epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[20][5].ambience);
-        epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[21][5].ambience);
-        epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[22][5].ambience);
-        epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[23][5].ambience);
-        epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[24][5].ambience);
-    }
-    
     if(x == 5 && y == 24 && turn.bear_event && !turn.bear_knocked_down)
         //player is able to "hide"
     {
