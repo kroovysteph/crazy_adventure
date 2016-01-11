@@ -70,7 +70,7 @@ int evaluate(void)
         turn.bear_event   = true;
         place_bear_behind_player();
     }
-    
+
     if(turn.bear_knocked_down)
     {
         epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[16][5].ambience);
@@ -166,6 +166,16 @@ int evaluate(void)
     }
     if(turn.current_turn - turn.bear_started == 4 && turn.bear_event)
     {
+        epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[16][5].ambience);
+        epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[17][5].ambience);
+        epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[18][5].ambience);
+        epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[19][5].ambience);
+        epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[20][5].ambience);
+        epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[21][5].ambience);
+        epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[22][5].ambience);
+        epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[23][5].ambience);
+        epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[24][5].ambience);
+
         //bear´s turn 4
         //decide vehicle event with "left" "right"
         printf("\nYou can see a car and a motorcycle. ");
