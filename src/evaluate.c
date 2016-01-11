@@ -252,7 +252,7 @@ int evaluate(void)
     if(turn.current_turn - turn.bear_started == 12 && turn.bear_event)
     {
         //bear´s turn 12
-        printf("\nROOAAARRRRR!!!!!!1121 lol?\n");
+        printf("\nOH MY GOD! You have knocked down the Bear!!!\n");
         bear.position.y++;
         place_bear_behind_player();
         turn.bear_knocked_down = true;
