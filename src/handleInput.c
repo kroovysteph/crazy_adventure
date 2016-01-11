@@ -460,12 +460,14 @@ void attack (void)
                 else if(strcmp(input3, "wolf") != 0 || strcmp(input3, "dog") != 0)
                 {
                         printf("\nYou´re trying to attack %s...", input3);
+                        break;
                 }
             }
             //The item the player wanted to attack is not there.
             else if(strcmp(input3, item->name) != 0)
             {
                     printf("\nHere´s nothing like %s!", input3);
+                    break;
             }
         }
     }
