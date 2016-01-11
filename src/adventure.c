@@ -218,6 +218,10 @@ void game_loop(void)
         {
             print_stats();
         }
+        else if(0 == strcmp(input1, "hide") && !(player.position.x == 5 && player.position.y == 24))
+        {
+            printf("\nYou can´t hide here.");
+        }
         else if(strcmp(input1, "quit") == 0 || 0 == strcmp(input1, "q"))
         {
             if (quit())
