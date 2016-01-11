@@ -5,5 +5,5 @@ cd..
 @echo ">> prog1lib successfully compiled!"
 set PFAD="%cd%\adventure.exe"
 IF EXIST %PFAD% DEL /F %PFAD%
-make adventure && adventure.exe
+make adventure && start adventure.exe
 exit
