@@ -237,8 +237,8 @@ void game_loop(void)
 int main(void)
 {
     //Freed memory check.
-    base_init();
-    base_set_memory_check(true);
+    //base_init();
+    //base_set_memory_check(true);
     
     init_game();
     game_loop();
