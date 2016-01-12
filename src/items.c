@@ -603,7 +603,7 @@ Item *create_item(char item[])
     {
         epic_string_cpy("pictures", i->name);
         i->weight = 1;
-        epic_string_cpy("Your child´s friend seems to like super heroes like every other child. There´s a picture oBatman.", i->flavour_text);
+        epic_string_cpy("Your child´s friend seems to like super heroes like every other child There´s a picture of Batman.", i->flavour_text);
         i->damage = 0;
         i->hp_regeneration = 0;
         i->additional_capacity = 0;
