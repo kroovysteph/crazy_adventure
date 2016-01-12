@@ -234,7 +234,6 @@ void game_loop(void)
             random_error_string();
         }
     }
-    getchar();
 }
 
 
