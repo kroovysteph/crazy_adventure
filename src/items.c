@@ -182,7 +182,7 @@ Item *create_item(char item[])
     {
         epic_string_cpy("knife", i->name);
         i->weight = 2;
-        i->damage = 3;
+        i->damage = 2;
         epic_string_cpy("A pretty big and pretty sharp knife. It´s made of one piece of steel.", i->flavour_text);
         i->hp_regeneration = 0;
         i->additional_capacity = 0;
@@ -352,7 +352,7 @@ Item *create_item(char item[])
         epic_string_cpy("dog", i->name);
         i->weight = 1000;
         i->damage = 2;
-        i->health = 4;
+        i->health = 5;
         epic_string_cpy("A dog that´s attacking you!", i->flavour_text);
         i->hp_regeneration = 0;
         i->additional_capacity = 0;
@@ -363,7 +363,7 @@ Item *create_item(char item[])
     {
         epic_string_cpy("axe", i->name);
         i->weight = 3;
-        i->damage = 4;
+        i->damage = 3;
         epic_string_cpy("This is a great and sharp axe.", i->flavour_text);
         i->hp_regeneration = 0;
         i->additional_capacity = 0;
