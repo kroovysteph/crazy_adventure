@@ -43,7 +43,7 @@ int evaluate(void)
     if(player.health <= 0)
     {
         
-        printf("\n%s died a tragical death...\n", player.name);                //printf("%s\n", field[32][7].ambience);
+        printf("\n%s died a tragical death...\n", player.name);
         
         print_tombstone();
         
@@ -90,7 +90,7 @@ int evaluate(void)
             epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[20][5].ambience);
             epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[21][5].ambience);
             epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[22][5].ambience);
-            epic_string_cpy("You are still on a street. You can follow it in the nor                //printf("%s\n", field[32][7].ambience);thern and southern direction.", field[23][5].ambience);
+            epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[23][5].ambience);
             epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[24][5].ambience);
 //------------------------------------------------------------------------------
             print_field();
@@ -137,7 +137,7 @@ int evaluate(void)
         place_bear_behind_player();
     }
     if(turn.current_turn - turn.bear_started == 2 && turn.bear_event)
-    {                //printf("%s\n", field[32][7].ambience);
+    {
         //bear´s turn 2
         printf("\nRoarr!.. You know that Grizzlys can weigh up to 680 kg!\n");
         bear.position.y++;
@@ -229,7 +229,7 @@ int evaluate(void)
     if(turn.current_turn - turn.bear_started == 9 && turn.bear_event)
     {
         //bear´s turn 9
-        printf("\nROOAAARRRRR!!!!!!1111 Fast! Fast! Fast!\n");                //printf("%s\n", field[32][7].ambience);
+        printf("\nROOAAARRRRR!!!!!!1111 Fast! Fast! Fast!\n");
         bear.position.y++;
         place_bear_behind_player();
     }
@@ -343,21 +343,18 @@ int evaluate(void)
         l_append(field[13][2].items, create_item("Wolf"));
         wolf_event1 = true;
         wolf_event1_counter = 1;
-	printf("\nSuddenly a wolf appears and attacks you!");
     }
     if(x == 2 && y == 25 && wolf_event2 == false && wolf_event2_counter == 0)
     {
         l_append(field[25][2].items, create_item("Wolf"));
         wolf_event2 = true;
         wolf_event2_counter = 1;
-	printf("\nSuddenly a wolf appears and attacks you!");
     }
     if(x == 9 && y == 13 && dog_event == false && dog_event_counter == 0)
     {
         l_append(field[13][9].items, create_item("Dog"));
         dog_event = true;
         dog_event_counter = 1;
-	printf("\nSuddenly a dog appears and attacks you!");
     }
     
     return 1;
