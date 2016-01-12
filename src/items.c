@@ -599,11 +599,11 @@ Item *create_item(char item[])
         
         return i;
     }
-    else if(0 == strcmp(item, "Hero_Pictures"))
+    else if(0 == strcmp(item, "Hero_Picture"))
     {
         epic_string_cpy("pictures", i->name);
         i->weight = 1;
-        epic_string_cpy("Your child´s friend seems to like super heroes like every other child. There´s a picture of Batman.", i->flavour_text);
+        epic_string_cpy("Your child´s friend seems to like super heroes like every other child. There´s a picture oBatman.", i->flavour_text);
         i->damage = 0;
         i->hp_regeneration = 0;
         i->additional_capacity = 0;
