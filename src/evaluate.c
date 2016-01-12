@@ -90,7 +90,7 @@ int evaluate(void)
             epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[20][5].ambience);
             epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[21][5].ambience);
             epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[22][5].ambience);
-            epic_string_cpy("You are still on a street. You can follow it in the nor                //printf("%s\n", field[32][7].ambience);thern and southern direction.", field[23][5].ambience);
+            epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[23][5].ambience);
             epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[24][5].ambience);
 //------------------------------------------------------------------------------
             print_field();
