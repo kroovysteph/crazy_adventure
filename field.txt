@@ -267,7 +267,7 @@ Wall 24 1 Wall! <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> 
 Room 24 2 You_are_in_the_entrance_hall_of_the_building._You_wont_find_anything_here. <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
 Wall 24 3 Wall! <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
 Wall 24 4 Wall! <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
-Room 24 5 You_here_noises_that_indicade,_that_the_bear_has_fallen._You_see_a_gap_between_two_houses._This_seems_like_a_great_opportunity_to_"hide"_while_the_bear_is_distracted. <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
+Room 24 5 You_hear_noises_that_indicade,_that_the_bear_has_fallen._You_see_a_gap_between_two_houses._This_seems_like_a_great_opportunity_to_"hide"_while_the_bear_is_distracted. <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
 Wall 24 6 Wall! <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
 Wall 24 7 Wall! <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>
 Wall 24 8 Wall! <item1> <item2> <item3> <item4> <item5> <item6> <item7> <item8> <item9> <item10>

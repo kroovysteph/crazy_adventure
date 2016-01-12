@@ -109,6 +109,7 @@ void get_item(void)
             {
                 
                 player.weight_carrying += item->weight;
+                player.damage += item->damage;
                 l_append( player.inventory, item);
                 
                 if(strcmp(item->name, "backpack") == 0)
@@ -165,6 +166,7 @@ void put_item(void)
         {
             found = true;
             player.weight_carrying -= item->weight;
+            player.damage -= item->damage;
             
             l_append(field[y][x].items, item);
             
