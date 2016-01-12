@@ -306,6 +306,7 @@ void examine(void)
                 //examined item IS in the current room
                 player.position.y = 32;
                 player.position.x = 7;
+                printf("%s\n", field[32][7].ambience);
             }
 //------------------------------------------------------------------------------
             return;
