@@ -579,7 +579,7 @@ Item *create_item(char item[])
     {
         epic_string_cpy("note", i->name);
         i->weight = 1;
-        epic_string_cpy("You regocnize the handwriting of your child. It´s just scribble, but you identify it as \"Stratford Olympic Stadium\"", i->flavour_text);
+        epic_string_cpy("You regocnize the handwriting of your child. It´s just scribble, but you identify it as \"Stratford Olympic Stadium.\"", i->flavour_text);
         i->damage = 0;
         i->hp_regeneration = 0;
         i->additional_capacity = 0;
