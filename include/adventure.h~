@@ -32,6 +32,7 @@ bool dog_event;
 int wolf_event1_counter;
 int wolf_event2_counter;
 int dog_event_counter;
+bool donationbox_same_event;
 
 typedef struct Turncounter
 {

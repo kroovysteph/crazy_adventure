@@ -16,7 +16,7 @@ int evaluate(void)
     int y = player.position.y;
     
     cash_donationbox_same();
-    
+
     //The player is spawned back to the event position.
     if(wolf_event1)
     {
@@ -127,7 +127,6 @@ int evaluate(void)
             }
         }
     }
-    
     if((turn.current_turn - turn.bear_started) == 1 && turn.bear_event)
     {
         //bear´s turn 1

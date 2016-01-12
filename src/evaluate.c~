@@ -16,7 +16,7 @@ int evaluate(void)
     int y = player.position.y;
     
     cash_donationbox_same();
-    
+
     //The player is spawned back to the event position.
     if(wolf_event1)
     {
@@ -90,7 +90,7 @@ int evaluate(void)
             epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[20][5].ambience);
             epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[21][5].ambience);
             epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[22][5].ambience);
-            epic_string_cpy("You are still on a street. You can follow it in the nor                //printf("%s\n", field[32][7].ambience);thern and southern direction.", field[23][5].ambience);
+            epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[23][5].ambience);
             epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[24][5].ambience);
 //------------------------------------------------------------------------------
             print_field();
@@ -127,7 +127,7 @@ int evaluate(void)
             }
         }
     }
-    
+    donationbox_same_event = true;
     if((turn.current_turn - turn.bear_started) == 1 && turn.bear_event)
     {
         //bear´s turn 1

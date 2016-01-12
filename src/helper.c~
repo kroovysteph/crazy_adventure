@@ -230,7 +230,6 @@ void cash_donationbox_same(void)
             player.damage = player.damage + 1;
             player.alignment = player.alignment + 1;
             printf("You feel stronger and better. You even think you´re a better person now!\n");
-	    donated = true;
         }
     }
 }
