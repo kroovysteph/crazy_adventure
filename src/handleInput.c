@@ -306,7 +306,7 @@ void examine(void)
                 //examined item IS in the current room
                 player.position.y = 32;
                 player.position.x = 7;
-		printf("You´re traveling to the Stratford Olympic Stadium..\n");
+		printf("You´re traveling to the Stratford Olympic Stadium.\n");
                 print_field();
             }
 //------------------------------------------------------------------------------
