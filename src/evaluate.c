@@ -160,7 +160,6 @@ int evaluate(void)
         epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[21][5].ambience);
         epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[22][5].ambience);
         epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[23][5].ambience);
-        epic_string_cpy("You are still on a street. You can follow it in the northern and southern direction.", field[24][5].ambience);
 
         //bear´s turn 4
         //decide vehicle event with "left" "right"
